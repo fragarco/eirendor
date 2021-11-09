@@ -80,23 +80,12 @@ export class AQEActor extends Actor {
     for (let [key, attribute] of Object.entries(data.attributes)) {
       attribute.mod = Math.floor((attribute.value - 10)/2);
     }
-  }
-
-  /**
-   * 
-   * Calculate Defense value. It adds base value to armor equiped. 
-   * Dex modificator should be added by hand by the user to the base value. 
-   */
-  _prepareDefenseData(actorData) {
-    const data = actorData.data;
-    let def = data.traits.def.base;
-    for (let i of actorData.items) {
-      const item = i.data;
-      if (item.type === 'armor' && !item.data.stored) {
-          def = def + item.data.defmod;
-      }
+    let nivel = data.header.level.value;
+    if (nivel > 10) {
+      nivel = 10;
     }
-    data.traits.def.current = def;
+    data.traits.bc.value = Math.floor((nivel+1)/2) + 1;
+    data.traits.pe.max = Math.floor(nivel/2) + 1 + data.attributes.con.mod;
   }
 
   /**
@@ -131,7 +120,6 @@ export class AQEActor extends Actor {
     this._prepareAttributesData(actorData);
     //AAA
     //this._prepareEncumbranceData(actorData);
-    //this._prepareDefenseData(actorData);
     //this._prepareAttackData(actorData);
   }
 
@@ -141,7 +129,6 @@ export class AQEActor extends Actor {
     _prepareNonCharacterData(actorData) {
       this._prepareAttributesData(actorData);
       //AAA
-      //this._prepareDefenseData(actorData);
       //this._prepareAttackData(actorData);
     }
 }

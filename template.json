@@ -96,8 +96,7 @@
             "value": 12
           },
           "ca": {
-            "base": 10,
-            "current": 0
+            "value": 10
           },
           "ini": {
             "value": 0

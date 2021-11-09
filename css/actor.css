@@ -7,7 +7,7 @@
 .eirendor.sheet .avatar img {
     flex: 0 0 160px;
     max-width: 160px;
-    height: 160px;
+    height: 195px;
 }
 
 .eirendor.sheet .avatar img:hover {
@@ -139,8 +139,8 @@
 
 .eirendor.sheet .attributes input{
     max-width: 3em;
-    border: 2px groove black;
-    border-radius: 4px;
+    border: 1px groove black;
+    border-radius: 0px;
     text-align: center;
     height: auto;
 }
@@ -163,8 +163,8 @@
 
 .eirendor.sheet .skills input{
     max-width: 3em;
-    border: 2px groove black;
-    border-radius: 4px;
+    border: 1px groove black;
+    border-radius: 0px;
     text-align: center;
     height: auto;
 }

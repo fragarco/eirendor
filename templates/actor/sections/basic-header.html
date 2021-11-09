@@ -66,15 +66,21 @@
         </li>
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.bc.value" value="{{numberFormat data.traits.bc.value decimals=0 sign=true}}" data-dtype="Number"/>
+                <input type="text" name="data.traits.pe.value" value="{{data.traits.pe.value}}" data-dtype="Number"/>
+                <span class=>|</span>
+                <input type="text" name="data.traits.pe.max" value="{{data.traits.pe.max}}" data-dtype="Number" readonly/>
+            </div>
+            <h4>{{localize "AQE.PE"}}</h4>
+        </li>
+        <li>
+            <div class="flexrow">
+                <input type="text" name="data.traits.bc.value" value="{{numberFormat data.traits.bc.value decimals=0 sign=true}}" data-dtype="Number" readonly/>
             </div>
             <h4>{{localize "AQE.BC"}}</h4>
         </li>
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.ca.base" value="{{data.traits.ca.base}}" data-dtype="Number"/>
-                <span class=>|</span>
-                <input type="text" name="data.traits.ca.current" value="{{data.traits.ca.current}}" data-dtype="Number" readonly/>
+                <input type="text" name="data.traits.ca.value" value="{{data.traits.ca.value}}" data-dtype="Number"/>
             </div>
             <h4>{{localize "AQE.CA"}}</h4>
         </li>

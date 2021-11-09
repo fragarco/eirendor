@@ -7,7 +7,7 @@
                 <label class="rollable" data-roll="1d20 + {{attribute.mod}}" data-label="{{localize attribute.label}}">{{localize attribute.label}}</label>
                 <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
                 <span>{{numberFormat attribute.mod decimals=0 sign=true}}</span>
-                <input class="profcheck" type="checkbox" name="data.attributes.{{key}}.proficient" {{checked attribute.proficient}}/>
+                <input style="margin-top: 10px" type="checkbox" name="data.attributes.{{key}}.proficient" {{checked attribute.proficient}}/>
             </li>
             {{/each}}
         </ol>
@@ -19,7 +19,7 @@
                 <li class="flexrow">
                     <label class="rollable" data-roll="1d20 + {{save.value}}" data-label="{{localize save.label}}">{{localize save.label}}</label>
                     <input type="text" name="data.saves.{{key}}.value" value="{{numberFormat save.value decimals=0 sign=true}}" data-dtype="Number"/>
-                    <input type="checkbox" name="data.saves.{{key}}.proficient" {{checked save.proficient}} />
+                    <input style="margin-top: 10px" type="checkbox" name="data.saves.{{key}}.proficient" {{checked save.proficient}} />
                 </li>
             {{/each}}
         </ol>
