@@ -1,0 +1,277 @@
+
+.eirendor.sheet.actor {
+    min-width: 700px;
+    min-height: 600px;
+}
+
+.eirendor.sheet .avatar img {
+    flex: 0 0 160px;
+    max-width: 160px;
+    height: 160px;
+}
+
+.eirendor.sheet .avatar img:hover {
+    box-shadow: 0 0 10px var(--color-highlight);
+    cursor: pointer;
+}
+
+.eirendor.sheet .sheet-header h1.charname {
+    height: 60px;
+    padding: 0;
+}
+
+.eirendor.sheet .sheet-header h1.charname input {
+    height: 40px;
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid var(--color-label);
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.eirendor.sheet label.velabel {
+    font-size: var(--size-label);
+    vertical-align: top;
+    color: var(--color-label);
+}
+
+.eirendor.sheet .sheet-header ul.level-box {
+    list-style: none;
+    max-width: 8em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 20px; 
+  }
+
+.eirendor.sheet .sheet-header ul.level-box input,
+.eirendor.sheet .gear ul.money-box input {
+    height: 20px;
+    margin: 0;
+    border: 1px solid var(--color-label);
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+}
+
+.eirendor.sheet .sheet-header ul.summary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.eirendor.sheet .sheet-header ul.summary input {
+    height: 20px;
+    margin: 0;
+    border: 1px solid var(--color-label);
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+}
+
+.eirendor.sheet .sheet-header ul.traits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.eirendor.sheet ul.traits li {
+    height: 60px;
+    margin: 0 0 0 0;
+    border: 2px groove #eeede0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.eirendor.sheet ul.traits div {
+    margin: 0.5rem 0 0 0;
+}
+
+.eirendor.sheet ul.traits span {
+    font-size: 15px;
+    margin: 4px 0 0 0;
+    max-width: 0.5em;
+}
+
+.eirendor.sheet ul.traits input {
+    font-size: var(--attribute-size);
+    margin: 0 0 0 0;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+}
+
+.eirendor .sheet-body .tab,
+.eirendor .sheet-body .tab .editor {
+  height: 100%;
+}
+
+.eirendor .tox .tox-editor-container {
+  background: #fff;
+}
+
+.eirendor.sheet .skills-tab h3.subhead,
+.eirendor.sheet .bio h3.subhead {
+    flex: 0;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid black;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f0f0e0;
+    text-shadow: 1px 1px black;
+}
+
+.eirendor.sheet .skills-tab span.add-button {
+    flex: 0 0 1em;
+    font-size: 12px;
+    padding-top: 1px;
+    padding-right: 1px;
+}
+
+.eirendor.sheet .attributes {
+    font-size: var(--attribute-size);
+    font-style: italic;
+    font-weight: bold;
+}
+
+.eirendor.sheet .attributes label{
+    text-align: center;
+    margin: 4px 0 0 0;
+}
+
+.eirendor.sheet .attributes input{
+    max-width: 3em;
+    border: 2px groove black;
+    border-radius: 4px;
+    text-align: center;
+    height: auto;
+}
+
+.eirendor.sheet .attributes span{
+    border: 2px groove #eeede0;
+    border-radius: 4px;
+    text-align: center;
+    color: var(--color-label);
+}
+
+.eirendor.sheet .skills {
+    font-size: var(--attribute-size);
+}
+
+.eirendor.sheet .skills label{
+    margin: 5px 0.5em 0 0;
+    text-align: right;
+}
+
+.eirendor.sheet .skills input{
+    max-width: 3em;
+    border: 2px groove black;
+    border-radius: 4px;
+    text-align: center;
+    height: auto;
+}
+
+.eirendor.sheet .backgrounds ol,
+.eirendor.sheet .talents ol{
+    padding: 0;
+}
+
+.eirendor.sheet .backgrounds img,
+.eirendor.sheet .talents img {
+    flex: 0 0 24px;
+    max-width: 24px;
+    height: 24px;
+    margin: 5px;
+}
+
+.eirendor.sheet .backgrounds h4,
+.eirendor.sheet .talents h4 {
+    padding-top: 8px;
+}
+
+.eirendor.sheet .backgrounds .talent-buttons,
+.eirendor.sheet .talents .talent-buttons {
+    flex: 0 0 3em;
+    max-width: 3em;
+    height: auto;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.storable:hover,
+.storable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.eirendor.sheet .combat table td,
+.eirendor.sheet .combat table th,
+.eirendor.sheet .gear table td,
+.eirendor.sheet .gear table th,
+.eirendor.sheet .spells table td,
+.eirendor.sheet .spells table th {
+    padding: 0;
+}
+
+.eirendor.sheet .combat .item-list,
+.eirendor.sheet .gear .item-list,
+.eirendor.sheet .spells .item-list,
+.eirendor.sheet .bio .notes-list {
+    width: 100%;
+}
+
+.eirendor.sheet .combat img.item-image,
+.eirendor.sheet .gear img.item-image,
+.eirendor.sheet .spells img.item-image {
+    flex: 0 0 20px;
+    max-width: 20px;
+    height: 20px;
+    margin: 2px 5px 2px 2px;
+}
+
+.eirendor.sheet .combat td.gear-values,
+.eirendor.sheet .gear td.gear-values {
+    text-align: center;
+}
+
+.eirendor.sheet .combat span.gear-name,
+.eirendor.sheet .gear span.gear-name,
+.eirendor.sheet .spells span.spell-name {
+    padding: 2px 0 0 0;
+}
+
+.eirendor.sheet .combat .add-button,
+.eirendor.sheet .gear .add-button,
+.eirendor.sheet .spells .add-button {
+    font-size: 12px;
+    padding-top: 1px;
+    text-align: center;
+}
+
+.eirendor.sheet .gear ul.money-box {
+    list-style: none;
+    max-width: 12em;
+    margin: 0;
+    padding: 0;
+}
+
+.eirendor.sheet .gear ul.weight-box {
+    list-style: none;
+    max-width: 12em;
+    margin: 0;
+    padding: 0;
+}
+
+.eirendor.sheet .gear ul.weight-box input  {
+    height: 20px;
+    margin: 0;
+    border: 1px solid var(--color-label);
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--color-grayed-out);
+    text-align: center;
+}
+
+.eirendor.sheet .bio div.textinfo {
+    height: 320px;
+    border: 1px solid black;
+    border-radius: 4px;
+}

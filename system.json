@@ -11,18 +11,28 @@
     "module/eirendor.js"
   ],
   "styles": [
-    "css/eirendor.css"
+    "css/grid.css",
+    "css/fonts.css",
+    "css/eirendor.css",
+    "css/actor.css",
+    "css/rolls.css",
+    "css/items.css"
   ],
   "scripts": [],
   "packs": [],
   "languages": [
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "lang/es.json"
+    },
     {
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 3,
+  "gridDistance": 2,
   "gridUnits": "m",
   "primaryTokenAttribute": null,
   "secondaryTokenAttribute": null,
