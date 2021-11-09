@@ -140,12 +140,22 @@
     },
     "player": {
       "templates": [
-        "base-header"
+        "base-header",
+        "base-attributes",
+        "base-saves",
+        "base-traits",
+        "base-encumbrance",
+        "base-money",
+        "base-bio"
       ]
     },
     "non-player": {
       "templates": [
-        "base-header"
+        "base-header",
+        "base-attributes",
+        "base-saves",
+        "base-traits",
+        "base-money"
       ]
     }
   },

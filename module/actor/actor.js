@@ -129,9 +129,10 @@ export class AQEActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     this._prepareAttributesData(actorData);
-    this._prepareEncumbranceData(actorData);
-    this._prepareDefenseData(actorData);
-    this._prepareAttackData(actorData);
+    //AAA
+    //this._prepareEncumbranceData(actorData);
+    //this._prepareDefenseData(actorData);
+    //this._prepareAttackData(actorData);
   }
 
     /**
@@ -139,7 +140,8 @@ export class AQEActor extends Actor {
    */
     _prepareNonCharacterData(actorData) {
       this._prepareAttributesData(actorData);
-      this._prepareDefenseData(actorData);
-      this._prepareAttackData(actorData);
+      //AAA
+      //this._prepareDefenseData(actorData);
+      //this._prepareAttackData(actorData);
     }
 }
