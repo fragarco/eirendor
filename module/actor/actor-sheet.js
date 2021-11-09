@@ -8,13 +8,21 @@ export class AQEActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["eirendor", "sheet", "actor"],
-      template: "systems/eirendor/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }]
     });
   }
 
+  /** @override */
+  get template() {
+    const path = "systems/eirendor/templates/actor";
+    let sheet = "";
+    const atype = this.actor.data.type; 
+    sheet = (atype === 'player') ? "actor-sheet.html" : "actor-npc-sheet.html"; 
+    return `${path}/${sheet}`;
+  }
+  
   /* -------------------------------------------- */
 
   /** @override */
@@ -32,11 +40,9 @@ export class AQEActorSheet extends ActorSheet {
     data.items = actorData.items;
     data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    // Prepare items.
-    if (this.actor.data.type == 'character') {
-      this._prepareCharacterItems(data);
-    }
-
+    // Prepare items. Could be filtered if needed by type
+    // using this.actor.data.type
+    this._prepareBaseCharacterItems(data);
     return data;
   }
 
@@ -47,50 +53,60 @@ export class AQEActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
+  _prepareBaseCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
     // Initialize containers.
     const gear = [];
-    const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
+    const stored = [];
+    const weapons = [];
+    const armor = [];
+    const talents = [];
+    const backgrounds = [];
+    const spells = [];
 
     // Iterate through items, allocating to containers
-    // let totalWeight = 0;
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
-      if (i.type === 'item') {
-        gear.push(i);
-      }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
-      }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
-        }
+      switch (i.type) {
+        case 'weapon':
+          if (item.stored) {
+            stored.push(i);
+           } else {
+            gear.push(i);
+            weapons.push(i);
+          }
+          break;
+        case 'armor':
+          if (item.stored) {
+            stored.push(i);
+          } else {
+            gear.push(i);
+            armor.push(i);
+          }
+          break;
+        case 'gear':
+          if (item.stored) {
+            stored.push(i);
+          } else {
+            gear.push(i);
+          }
+          break;
+        case 'talent': talents.push(i); break;
+        case 'spell':  spells.push(i); break;
+        case 'background': backgrounds.push(i); break;
       }
     }
-
     // Assign and return
     sheetData.gear = gear;
-    sheetData.features = features;
+    sheetData.stored = stored;
+    sheetData.weapons = weapons;
+    sheetData.armor = armor;
+    sheetData.talents = talents;
     sheetData.spells = spells;
+    sheetData.backgrounds = backgrounds;
   }
 
   /* -------------------------------------------- */
@@ -120,11 +136,20 @@ export class AQEActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this));
+    // Carry/Store inventory item
+    html.find('.storable').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      const stored = !item.data.data.stored;
+      item.update({'data.stored': stored});
+    });
 
+    // Rollable abilities.
+    html.find('.rollable').click(this._onSimpleDualRoll.bind(this));
+    html.find('.insroll').click(this._onInsRoll.bind(this));
+    html.find('.attackroll').click(this._onAttackRoll.bind(this));
     // Drag events for macros.
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
@@ -162,23 +187,139 @@ export class AQEActorSheet extends ActorSheet {
   }
 
   /**
-   * Handle clickable rolls.
+   * callback for clickable simple dual rolls.
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onSimpleDualRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    await this.__handleSimpleDualRoll(dataset);
+  }
 
+  /**
+   * callback for INS rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onInsRoll(event) {
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const rolldata = this.actor.getRollData()
+    renderTemplate("systems/eirendor/templates/dialog/insroll.html")
+    .then( (dlg) => {
+      const callroll = (attribute, name) => {
+        const newroll = dataset.roll + " + " + attribute;
+        const newlabel = dataset.label + "/" + game.i18n.localize(name);
+        this.__handleSimpleDualRoll({roll: newroll, label: newlabel});
+      }
+      new Dialog({
+        title: game.i18n.localize('AQE.INSDialog'),
+        content: dlg,
+        buttons: {
+          a: {
+            label: game.i18n.localize('AQE.str'),
+            callback: () => (callroll(rolldata.attributes.str.mod, "AQE.str")),
+          },
+          b: {
+            label: game.i18n.localize('AQE.dex'),
+            callback: () => (callroll(rolldata.attributes.dex.mod, "AQE.dex")),
+          },
+          c: {
+            label: game.i18n.localize('AQE.con'),
+            callback: () => (callroll(rolldata.attributes.con.mod, "AQE.con")),
+          },
+          d: {
+            label: game.i18n.localize('AQE.int'),
+            callback: () => (callroll(rolldata.attributes.int.mod, "AQE.int")),
+          },
+          e: {
+            label: game.i18n.localize('AQE.wis'),
+            callback: () => (callroll(rolldata.attributes.wis.mod, "AQE.wis")),
+          },
+          f: {
+            label: game.i18n.localize('AQE.cha'),
+            callback: () => (callroll(rolldata.attributes.cha.mod, "AQE.cha")),
+          },
+        },
+        default: 'str'
+      }).render(true);
+    });
+  }
+
+  /**
+   * callback for clickable CaC attack rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+   async _onAttackRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const rolldata = this.actor.getRollData();
+    // reaplace attribute name by its value if it appears in the damage roll
+    const attributes = Object.keys(rolldata.attributes);
+    attributes.forEach((a) => {
+      const label = game.i18n.localize(rolldata.attributes[a].label);
+      dataset.damage = dataset.damage.replace(label, rolldata.attributes[a].mod);
+    });
+    await this.__handleAttackDualRoll(dataset);
+  }
+
+  /**
+   * Handle simple dual rolls.
+   * @param {DOMSTringMap} dataset originating click event
+   * @private
+   */
+  async __handleSimpleDualRoll(dataset) {
+    const rollingstr = game.i18n.localize("AQE.Rolling") 
     if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
-      let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label
-      });
+      let roll1 = new Roll(dataset.roll, this.actor.getRollData());
+      let roll2 = new Roll(dataset.roll, this.actor.getRollData());
+      let label = dataset.label ? `${rollingstr} ${dataset.label}` : '';
+
+      await roll1.evaluate({async: true});
+      await roll2.evaluate({async: true});
+      renderTemplate("systems/eirendor/templates/dice/simpledualroll.html",{roll1, roll2})
+      .then(
+        (msg) => {
+          ChatMessage.create({
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: label,
+            content: msg,
+          });
+        }
+      );
     }
   }
 
+  /**
+   * Handle simple dual rolls.
+   * @param {DOMSTringMap} dataset originating click event
+   * @private
+   */
+   async __handleAttackDualRoll(dataset) {
+    const rollingstr = game.i18n.localize("AQE.AttackWith");
+    if (dataset.roll) {
+      let roll1 = new Roll(dataset.roll, this.actor.getRollData());
+      let roll2 = new Roll(dataset.roll, this.actor.getRollData());
+      let damage = new Roll(dataset.damage, this.actor.getRollData());
+      let label = dataset.label ? `${rollingstr} ${dataset.label}` : '';
+
+      await roll1.evaluate({async: true});
+      await roll2.evaluate({async: true});
+      await damage.evaluate({async: true});
+      renderTemplate("systems/eirendor/templates/dice/attackdualroll.html",{roll1, roll2, damage})
+      .then(
+        (msg) => {
+          ChatMessage.create({
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: label,
+            content: msg,
+          });
+        }
+      );
+    }
+  }
 }

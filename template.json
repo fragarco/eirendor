@@ -1,68 +1,195 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["player", "non-player"],
     "templates": {
-      "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        }
-      }
-    },
-    "character": {
-      "templates": ["base"],
-      "biography": "",
-      "attributes": {
-        "level": {
-          "value": 1
+      "base-header": {
+        "header": {
+          "race": {
+            "value": ""
+          },
+          "class": {
+            "value": ""
+          },
+          "level": {
+            "value": 1,
+            "min": 0,
+            "max": 20
+          },
+          "xp": {
+            "value": 0,
+            "min": 0,
+            "max": 200
+          },
+          "tags": {
+            "value": ""
+          },
+          "langs": {
+            "value": ""
+          }
         }
       },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
+      "base-attributes": {
+        "attributes": {
+          "str": {
+            "value": 10,
+            "mod": 0,
+            "proficient": 0,
+            "label": "AQE.str"
+          },
+          "dex": {
+            "value": 10,
+            "mod": 0,
+            "proficient": 0,
+            "label": "AQE.dex"
+          },
+          "con": {
+            "value": 10,
+            "mod": 0,
+            "proficient": 0,
+            "label": "AQE.con"
+          },
+          "int": {
+            "value": 10,
+            "mod": 0,
+            "proficient": 0,
+            "label": "AQE.int"
+          },
+          "wis": {
+            "value": 10,
+            "mod": 0,
+            "proficient": 0,
+            "label": "AQE.wis"
+          },
+          "cha": {
+            "value": 10,
+            "mod": 0,
+            "proficient": 0,
+            "label": "AQE.cha"
+          }
         }
+      },
+      "base-saves": {
+        "saves": {
+          "fortitude": {
+            "value": 0,
+            "proficient": 0,
+            "label": "AQE.Fortitude"
+          },
+          "reflex": {
+            "value": 0,
+            "proficient": 0,
+            "label": "AQE.Reflex"
+          },
+          "will": {
+            "value": 0,
+            "proficient": 0,
+            "label": "AQE.Will"
+          }
+        }
+      },
+      "base-traits": {
+        "traits": {
+          "bc": {
+            "value": 0
+          },
+          "mov": {
+            "value": 12
+          },
+          "ca": {
+            "base": 10,
+            "current": 0
+          },
+          "ini": {
+            "value": 0
+          },
+          "pe": {
+            "value": 0,
+            "max": 0
+          },
+          "hp": {
+            "value": 0,
+            "max": 0
+          },
+          "mp": {
+            "value": 0,
+            "max": 0
+          }
+        }
+      },
+      "base-encumbrance": {
+        "encumbrance": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "base-money": {
+        "money": {
+          "gp": 0,
+          "gplabel": "AQE.CostMO",
+          "sp": 0,
+          "splabel": "AQE.CostMP",
+          "cp": 0,
+          "cplabel": "AQE.CostMC"
+        }
+      },
+      "base-bio": {
+        "story": "",
+        "enemies": "",
+        "allies": ""
       }
+    },
+    "player": {
+      "templates": [
+        "base-header"
+      ]
+    },
+    "non-player": {
+      "templates": [
+        "base-header"
+      ]
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["weapon", "armor", "gear", "talent", "spell", "background"],
     "templates": {
-      "base": {
-        "description": ""
+      "gear-common": {
+        "number": 1,
+        "description": "",
+        "weight": 1,
+        "capacity": 0,
+        "stored": false
+      },
+      "weapon-basic": {
+        "attackmod": 0,
+        "weapontype": "strtype",
+        "attacks": 1,
+        "addmod": 0,
+        "damage": "1d4",
+        "range": 0
+      },
+      "armor-basic": {
+        "defmod": 0
       }
     },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
+    "weapon": {
+      "templates": ["gear-common", "weapon-basic"]
     },
-    "feature": {
-      "templates": ["base"]
+    "armor": {
+      "templates": ["gear-common", "armor-basic"]
+    },
+    "gear": {
+      "templates": ["gear-common"]
+    },
+    "talent": {
+      "description": ""
     },
     "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+      "minmp": 0,
+      "description": "",
+      "notes": ""
+    },
+    "background": {
+      "description": ""
     }
   }
 }

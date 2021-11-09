@@ -3,9 +3,11 @@ import { AQEActor } from "./actor/actor.js";
 import { AQEActorSheet } from "./actor/actor-sheet.js";
 import { AQEItem } from "./item/item.js";
 import { AQEItemSheet } from "./item/item-sheet.js";
+import { preloadHandlebarsTemplates } from "./preloadtemplates.js";
+import { registerSettings } from "./settings.js";
+import { upgradeWorld } from "./upgrade.js";
 
 Hooks.once('init', async function() {
-
   game.eirendor = {
     AQEActor,
     AQEItem,
@@ -17,21 +19,29 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @abilities.dex.mod",
+    formula: "1d20 + @traits.ini.value",
     decimals: 2
   };
+  registerSettings();
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = AQEActor;
-  CONFIG.Item.entityClass = AQEItem;
+  CONFIG.Actor.documentClass = AQEActor;
+  CONFIG.Item.documentClass = AQEItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("eirendor", AQEActorSheet, { makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("eirendor", AQEItemSheet, { makeDefault: true });
+  Actors.registerSheet("eirendor", AQEActorSheet, { 
+    types: ["player", "non-player"],
+    makeDefault: true,
+  });
 
-  // If you need to add Handlebars helpers, here are a few useful examples:
+  Items.unregisterSheet("core", ItemSheet);
+  Items.registerSheet("eirendor", AQEItemSheet, {
+    types: ["weapon", "armor", "gear", "talent", "spell", "background"],
+    makeDefault: true
+  });
+
+  // Handlebars helpers, we use prefix "aqe_" to avoid problems with other modules
   Handlebars.registerHelper('aqe_concat', function() {
     var outStr = '';
     for (var arg in arguments) {
@@ -45,11 +55,18 @@ Hooks.once('init', async function() {
   Handlebars.registerHelper('aqe_toLowerCase', function(str) {
     return str.toLowerCase();
   });
+
+  Handlebars.registerHelper('aqe_max', function(num1, num2) {
+    return Math.max(num1, num2);
+  });
+
+  await preloadHandlebarsTemplates();
 });
 
 Hooks.once("ready", async function() {
+  upgradeWorld();
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createEirendorMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => createAQEMacro(data, slot));
 });
 
 /* -------------------------------------------- */
@@ -63,7 +80,7 @@ Hooks.once("ready", async function() {
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-async function createEirendorMacro(data, slot) {
+async function createAQEMacro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
   const item = data.data;
@@ -77,7 +94,7 @@ async function createEirendorMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "eirendor.itemMacro": true }
+      flags: { "AQE.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

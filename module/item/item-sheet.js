@@ -17,11 +17,6 @@ export class AQEItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/eirendor/templates/item";
-    // Return a single sheet for all item types.
-    // return `${path}/item-sheet.html`;
-
-    // Alternatively, you could use the following return statement to do a
-    // unique item sheet by type, like `weapon-sheet.html`.
     return `${path}/item-${this.item.data.type}-sheet.html`;
   }
 
@@ -38,7 +33,6 @@ export class AQEItemSheet extends ItemSheet {
     // Re-define the template data references.
     data.item = itemData;
     data.data = itemData.data;
-
     return data;
   }
 

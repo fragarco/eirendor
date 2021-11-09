@@ -1,0 +1,108 @@
+<div class="flexrow">
+    <div style="text-align: center;">
+        <ul class="money-box flexrow">
+            <li>
+                <input name="data.money.gp" type="text" value="{{data.money.gp}}" data-dtype="Number"/>
+                <label class="velabel">{{localize data.money.gplabel}}</label>
+            </li>
+            {{#if data.money.splabel}}
+            <li>
+                <input name="data.money.sp" type="text" value="{{data.money.sp}}" data-dtype="Number"/>
+                <label class="velabel">{{localize data.money.splabel}}</label>
+            </li>
+            {{/if}}
+            {{#if data.money.cplabel}}
+            <li>
+                <input name="data.money.cp" type="text" value="{{data.money.cp}}" data-dtype="Number"/>
+                <label class="velabel">{{localize data.money.cplabel}}</label>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+    <div style="text-align: center;">
+        <ul class="weight-box flexrow">
+            <li>
+                <input name="data.encumbrance.current" type="text" value="{{data.encumbrance.current}}" data-dtype="Number" readonly/>
+                <label class="velabel">{{localize "VEJDR.Encumbrance"}}</label>
+            </li>
+            <li>
+                <input name="data.encumbrance.max" type="text" value="{{data.encumbrance.max}}" data-dtype="Number" readonly/>
+                <label class="velabel">{{localize "VEJDR.MaxEncumbrance"}}</label>
+            </li>
+        </ul>
+    </div>
+</div>
+<table class="items-list">
+    <colgroup>
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 10%;">
+     </colgroup>
+    <thead class="item gear-header">
+        <th class="item-name">{{localize "VEJDR.Carried"}}</th>
+        <th class="item-name">{{localize "VEJDR.Number"}}</th>
+        <th class="item-name">{{localize "VEJDR.Weight"}}</th>
+        <th class="item-name">{{localize "VEJDR.Capacity"}}</th>
+        <th class="add-button">
+            <a class="item-control item-create" title="{{localize 'VEJDR.AddItem'}}" data-type="gear">
+                <i class="fas fa-plus"></i>
+            </a>
+        </th>
+    </thead>
+    <tbody>
+        {{#each gear as |item id|}}
+        <tr class="item" data-item-id="{{item._id}}">
+            <td class="flexrow">
+                <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
+                <span class="storable gear-name">{{item.name}}</span>
+            </td>
+            <td class="gear-values">{{item.data.number}}</td>
+            <td class="gear-values">{{item.data.weight}}</td>
+            <td class="gear-values">{{item.data.capacity}}</td>
+            <td class="gear-values">
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="{{localize 'VEJDR.ModItem'}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="{{localize 'VEJDR.DelItem'}}"><i class="fas fa-trash"></i></a>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<table class="items-list">
+    <colgroup>
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 10%;">
+     </colgroup>
+    <thead class="item gear-header">
+        <th class="item-name">{{localize "VEJDR.Stored"}}</th>
+        <th class="item-name">{{localize "VEJDR.Number"}}</th>
+        <th class="item-name">{{localize "VEJDR.Weight"}}</th>
+        <th class="item-name">{{localize "VEJDR.Capacity"}}</th>
+        <th><!-- controls to edit/delete item --></th>
+    </thead>
+    <tbody>
+        {{#each stored as |item id|}}
+        <tr class="item" data-item-id="{{item._id}}">
+            <td class="flexrow">
+                <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
+                <span class="storable gear-name">{{item.name}}</span>
+            </td>
+            <td class="gear-values">{{item.data.number}}</td>
+            <td class="gear-values">{{item.data.weight}}</td>
+            <td class="gear-values">{{item.data.capacity}}</td>
+            <td class="gear-values">
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="{{localize 'VEJDR.ModItem'}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="{{localize 'VEJDR.DelItem'}}"><i class="fas fa-trash"></i></a>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

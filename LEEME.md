@@ -14,9 +14,9 @@ http://www.sinergiaderol.com/juegosgratuitos/j-eirendor.html
 
 Para instalar y usar el sistema para Eirendor en Foundry Virtual Tabletop, simplemente pegue la siguiente URL en el cuadro de diálogo **Install System** del menú Configuración:
 
-https://github.com/fragarco/eirendor-1ed/blob/main/system.json
+https://github.com/fragarco/eirendor/blob/main/system.json
 
-Si desea instalar manualmente el sistema, debe clonarlo o extraerlo en la carpeta "Data/systems/eirendor-1ed".
+Si desea instalar manualmente el sistema, debe clonarlo o extraerlo en la carpeta "Data/systems/eirendor".
 
 ## LICENCIA
 
