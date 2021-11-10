@@ -146,7 +146,6 @@ export class AQEActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.rollable').click(this._onSimpleDualRoll.bind(this));
-    html.find('.insroll').click(this._onInsRoll.bind(this));
     html.find('.attackroll').click(this._onAttackRoll.bind(this));
     // Drag events for macros.
     if (this.actor.isOwner) {
@@ -273,10 +272,15 @@ export class AQEActorSheet extends ActorSheet {
    * @private
    */
   async __handleSimpleDualRoll(dataset) {
-    const rollingstr = game.i18n.localize("AQE.Rolling") 
+    const rollingstr = game.i18n.localize("AQE.Rolling")
+    const bc = this.object.data.data.traits.bc.value;
+    let roll = dataset.roll;
+    if (dataset.comp === "true") {
+      roll = roll + " + " + bc;
+    }
     if (dataset.roll) {
-      let roll1 = new Roll(dataset.roll, this.actor.getRollData());
-      let roll2 = new Roll(dataset.roll, this.actor.getRollData());
+      let roll1 = new Roll(roll, this.actor.getRollData());
+      let roll2 = new Roll(roll, this.actor.getRollData());
       let label = dataset.label ? `${rollingstr} ${dataset.label}` : '';
 
       await roll1.evaluate({async: true});

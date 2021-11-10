@@ -72,17 +72,17 @@
         "saves": {
           "fortitude": {
             "value": 0,
-            "proficient": 0,
+            "proficient": false,
             "label": "AQE.Fortitude"
           },
           "reflex": {
             "value": 0,
-            "proficient": 0,
+            "proficient": false,
             "label": "AQE.Reflex"
           },
           "will": {
             "value": 0,
-            "proficient": 0,
+            "proficient": false,
             "label": "AQE.Will"
           }
         }
