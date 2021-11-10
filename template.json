@@ -193,9 +193,10 @@
       "description": ""
     },
     "spell": {
-      "minmp": 0,
-      "description": "",
-      "notes": ""
+      "range": 0,
+      "tags": "",
+      "summary": "",
+      "description": ""
     },
     "background": {
       "description": ""

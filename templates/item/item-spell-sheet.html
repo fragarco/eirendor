@@ -1,32 +1,40 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <div class="flex0">
+            <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+        </div>
+        <section class="flex1">
+            <div class="name-line flexrow">
+                <h1 class="charname flexcol">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AQE.Name'}}"/>
+                    <label class="velabel">{{localize 'AQE.Name'}}</label>
+                </h1>
+                <div class="name-side-box">
+                    <input name="data.range" type="text" value="{{data.range}}" data-dtype="Number"/>
+                    <label class="velabel">{{localize "AQE.SpellRange"}}</label>
+                </div>
+            </div>
+            <div>
+                <input class="description-line" type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
+                <label class="velabel">{{localize "AQE.Tags"}}</label>
+            </div>
+            <div>
+                <input class="description-line" type="text" name="data.summary" value="{{data.summary}}" data-dtype="String"/>
+                <label class="velabel">{{localize "AQE.Summary"}}</label>
+            </div>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
+        <a class="item" data-tab="description">{{localize "AQE.Description"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
-            <div class="resource">
-              <label class="resource-label">Spell Level</label>
-                <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="Number"/>
-            </div>
         </div>
     </section>
 </form>

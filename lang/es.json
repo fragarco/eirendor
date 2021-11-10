@@ -33,8 +33,12 @@
     "AQE.MP": "PP",
     "AQE.Ini": "INI",
     "AQE.PE": "PE",
-
+    
+    "AQE.Spells": "Conjuros",
+    "AQE.SpellRange": "Rango",
+    "AQE.Summary": "Resumen",
     "AQE.Description": "Descripción",
+
     "AQE.Backgrounds": "Trasfondos",
     "AQE.Notes": "Notas",
 
@@ -76,11 +80,6 @@
     "AQE.Encumbrance": "Carga",
     "AQE.MaxEncumbrance": "Carga Máxima",
 
-    "AQE.Spells": "Conjuros",
-    "AQE.SpellMinPow": "Poder Mínimo",
-    "AQE.Powers": "Poderes",
-    "AQE.Marvels": "Prodigios",
-
     "AQE.AddItem": "Nuevo",
     "AQE.DelItem": "Borrar",
     "AQE.ModItem": "Editar",
@@ -90,7 +89,4 @@
 
     "AQE.Story": "Historial, personalidad, aspecto físico, etc.",
     "AQE.Allies": "Aliados",
-    "AQE.Enemies": "Enemigos",
-    "AQE.Implants": "Implantes",
-    "AQE.Programs": "Programas"
-}
+    "AQE.Enemies": "Enemigos"

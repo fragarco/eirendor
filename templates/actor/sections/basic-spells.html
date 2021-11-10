@@ -1,16 +1,18 @@
 <table class="items-list">
     <colgroup>
-        <col span="1" style="width: 25%;">
-        <col span="1" style="width: 15%;">
-        <col span="1" style="width: 50%;">
-        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 35%;">
+        <col span="1" style="width: 35%;">
+        <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
-        <th class="item-name">{{localize "VEJDR.Name"}}</th>
-        <th class="item-name"> {{localize "VEJDR.SpellMinPow"}}</th>
-        <th class="item-name">{{localize "VEJDR.Description"}}</th>
+        <th class="item-name">{{localize "AQE.Name"}}</th>
+        <th class="item-name"> {{localize "AQE.SpellRange"}}</th>
+        <th class="item-name"> {{localize "AQE.Tags"}}</th>
+        <th class="item-name">{{localize "AQE.Summary"}}</th>
         <th class="add-button">
-            <a class="item-control item-create" title="{{localize 'VEJDR.AddItem'}}" data-type="spell">
+            <a class="item-control item-create" title="{{localize 'AQE.AddItem'}}" data-type="spell">
                 <i class="fas fa-plus"></i>
             </a>
         </th>
@@ -22,12 +24,13 @@
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
                 <span class="spell-name">{{item.name}}</span>
             </td>
-            <td style="text-align: center;">{{item.data.minmp}}</td>
-            <td style="text-align: center;">{{item.data.description}}</td>
+            <td style="text-align: center;">{{item.data.range}}</td>
+            <td style="text-align: center;">{{item.data.tags}}</td>
+            <td style="text-align: center;">{{item.data.summary}}</td>
             <td style="text-align: center;">
                 <div class="item-controls">
-                    <a class="item-control item-edit" title="{{localize 'VEJDR.ModItem'}}"><i class="fas fa-edit"></i></a>
-                    <a class="item-control item-delete" title="{{localize 'VEJDR.DelItem'}}"><i class="fas fa-trash"></i></a>
+                    <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="{{localize 'AQE.DelItem'}}"><i class="fas fa-trash"></i></a>
                 </div>
             </td>
         </tr>

@@ -34,7 +34,11 @@
     "AQE.Ini": "INI",
     "AQE.PE": "EP",
 
+    "AQE.Spells": "Spells",
+    "AQE.SpellRange": "Range",
+    "AQE.Summary": "Summary",
     "AQE.Description": "Description",
+
     "AQE.Backgrounds": "Backgrounds",
     "AQE.Notes": "Notes",
 
@@ -77,11 +81,6 @@
     "AQE.Encumbrance": "Encumbrance",
     "AQE.MaxEncumbrance": "Max Encumb.",
 
-    "AQE.Spells": "Spells",
-    "AQE.SpellMinPow": "Min Power",
-    "AQE.Powers": "Powers",
-    "AQE.Marvels": "Marvels",
-
     "AQE.AddItem": "New",
     "AQE.DelItem": "Delete",
     "AQE.ModItem": "Edit",
@@ -91,7 +90,5 @@
 
     "AQE.Story": "Story, personality, appearance, etc.",
     "AQE.Allies": "Allies",
-    "AQE.Enemies": "Enemies",
-    "AQE.Implants": "Implants",
-    "AQE.Programs": "Programs"
+    "AQE.Enemies": "Enemies"
 }
