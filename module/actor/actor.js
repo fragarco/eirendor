@@ -96,7 +96,8 @@ export class AQEActor extends Actor {
     const data = actorData.data;
     for (let i of actorData.items) {
       const item = i.data;
-      const base = item.data.addmod + data.traits.atk.value;
+      let base = item.data.addmod;
+      if (item.proficient) base = base + data.traits.bc.value;
       if (item.type === 'weapon') {
         switch(item.data.weapontype) {
           case "strtype":
@@ -119,8 +120,7 @@ export class AQEActor extends Actor {
   _prepareCharacterData(actorData) {
     this._prepareAttributesData(actorData);
     this._prepareEncumbranceData(actorData);
-    //AAA
-    //this._prepareAttackData(actorData);
+    this._prepareAttackData(actorData);
   }
 
     /**
@@ -128,7 +128,6 @@ export class AQEActor extends Actor {
    */
     _prepareNonCharacterData(actorData) {
       this._prepareAttributesData(actorData);
-      //AAA
-      //this._prepareAttackData(actorData);
+      this._prepareAttackData(actorData);
     }
 }

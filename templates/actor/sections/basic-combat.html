@@ -1,18 +1,18 @@
 <table class="items-list">
     <colgroup>
-        <col span="1" style="width: 30%;">
-        <col span="1" style="width: 15%;">
-        <col span="1" style="width: 15%;">
-        <col span="1" style="width: 15%;">
-        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 25%;">
         <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 45%;">
+        <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
+        <th class="item-naem"></th>
         <th class="item-name">{{localize "AQE.Weapons"}}</th>
-        <th class="item-name">{{localize "AQE.Attacks"}}</th>
         <th class="item-name">{{localize "AQE.Attack"}}</th>
-        <th class="item-name">{{localize "AQE.Range"}}</th>
         <th class="item-name">{{localize "AQE.Damage"}}</th>
+        <th class="item-name">{{localize "AQE.Tags"}}</th>
         <th class="add-button">
             <a class="item-control item-create" title="{{localize 'AQE.AddItem'}}" data-type="weapon">
                 <i class="fas fa-plus"></i>
@@ -22,16 +22,18 @@
     <tbody>
         {{#each weapons as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
+            <td>
+                <input type="checkbox" name="item.data.proficient" {{checked item.data.proficient}}/>
+            </td>
             <td class="flexrow">
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
                 <span class="gear-name">{{item.name}}</span>
             </td>
-            <td class="gear-values">{{item.data.attacks}}</td>
             <td class="gear-values">
                 <span class="attackroll gear-name" data-damage="{{item.data.damage}}" data-roll="1d20 + {{item.data.attackmod}}" data-label="{{item.name}}">{{numberFormat item.data.attackmod decimals=0 sign=true}}</span>
             </td>
-            <td class="gear-values">{{item.data.range}}</td>
             <td class="gear-values">{{item.data.damage}}</td>
+            <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>

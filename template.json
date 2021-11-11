@@ -170,12 +170,11 @@
         "stored": false
       },
       "weapon-basic": {
-        "attackmod": 0,
+        "proficient": false,
         "weapontype": "strtype",
-        "attacks": 1,
+        "attackmod": 0,
         "addmod": 0,
-        "damage": "1d4",
-        "range": 0
+        "damage": "1d4"
       },
       "armor-basic": {
         "ca": 0

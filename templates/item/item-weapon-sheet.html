@@ -6,54 +6,44 @@
         <section class="flex1">
             <div class="name-line flexrow">
                 <h1 class="charname flexcol">
-                    <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'VEJDR.Name'}}"/>
-                    <label class="velabel">{{localize 'VEJDR.Name'}}</label>
+                    <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AQE.Name'}}"/>
+                    <label class="velabel">{{localize 'AQE.Name'}}</label>
                 </h1>
                 <div class="name-side-box">
                     <select class="flexrow weapon-type" name="data.weapontype">
                         {{#select data.weapontype}}
-                        <option value="strtype">{{localize "VEJDR.TypeSTR"}}</option>
-                        <option value="dextype">{{localize "VEJDR.TypeDEX"}}</option>
-                        <option value="othtype">{{localize "VEJDR.TypeOTH"}}</option>
+                        <option value="strtype">{{localize "AQE.TypeSTR"}}</option>
+                        <option value="dextype">{{localize "AQE.TypeDEX"}}</option>
+                        <option value="othtype">{{localize "AQE.TypeOTH"}}</option>
                         {{/select}}
                     </select>
-                    <label class="velabel">{{localize "VEJDR.AttackWith"}}</label>
+                    <label class="velabel">{{localize "AQE.AttackWith"}}</label>
                 </div>
             </div>
             <ul class="flexrow">
                 <li>
-                    <input class="valuebox" type="text" name="data.number" value="{{data.number}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "VEJDR.Number"}}/{{localize "VEJDR.Ammunition"}}</label>
-                </li>
-                <li>
                     <input class="valuebox" type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "VEJDR.Weight"}}</label>
-                </li>
-                <li>
-                    <input class="valuebox" type="text" name="data.range" value="{{data.range}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "VEJDR.Range"}}</label>
-                </li>
-            </ul>
-            <ul class="flexrow">
-                <li>
-                    <input class="valuebox" type="text" name="data.attacks" value="{{data.attacks}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "VEJDR.Attacks"}}</label>
+                    <label class="velabel">{{localize "AQE.Weight"}}</label>
                 </li>
                 <li>
                     <input class="valuebox" type="text" name="data.addmod" value="{{numberFormat data.addmod decimals=0 sign=true}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "VEJDR.AddMod"}}</label>
+                    <label class="velabel">{{localize "AQE.AddMod"}}</label>
                 </li>
                 <li>
                     <input class="valuebox" type="text" name="data.damage" value="{{data.damage}}" data-dtype="String"/>
-                    <label class="velabel">{{localize "VEJDR.Damage"}}</label>
+                    <label class="velabel">{{localize "AQE.Damage"}}</label>
                 </li>
             </ul>
-        </div>
+            <div>
+                <input class="description-line" type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
+                <label class="velabel">{{localize "AQE.Tags"}}</label>
+            </div>
+        </section>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{localize "VEJDR.Description"}}</a>
+        <a class="item" data-tab="description">{{localize "AQE.Description"}}</a>
     </nav>
 
     <section class="sheet-body">
