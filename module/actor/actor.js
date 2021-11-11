@@ -54,8 +54,8 @@ export class AQEActor extends Actor {
   _prepareEncumbranceData(actorData) {
     const data = actorData.data;
 
-    data.encumbrance.max = data.attributes.str.value;
-    // encumbrance due to coins
+    data.encumbrance.max = data.attributes.str.value * 3;
+    // encumbrance due to coins, 100 coins = 1 Kg
     const coins = data.money.gp + data.money.sp + data.money.cp;
     let encumbrance = Math.floor(coins/100);
 
@@ -118,8 +118,8 @@ export class AQEActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     this._prepareAttributesData(actorData);
+    this._prepareEncumbranceData(actorData);
     //AAA
-    //this._prepareEncumbranceData(actorData);
     //this._prepareAttackData(actorData);
   }
 

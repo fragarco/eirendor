@@ -34,17 +34,19 @@
 </div>
 <table class="items-list">
     <colgroup>
-        <col span="1" style="width: 30%;">
-        <col span="1" style="width: 20%;">
-        <col span="1" style="width: 20%;">
         <col span="1" style="width: 20%;">
         <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 45%">
+        <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
         <th class="item-name">{{localize "AQE.Carried"}}</th>
         <th class="item-name">{{localize "AQE.Number"}}</th>
         <th class="item-name">{{localize "AQE.Weight"}}</th>
         <th class="item-name">{{localize "AQE.Capacity"}}</th>
+        <th class="item-name">{{localize "AQE.Tags"}}</th>
         <th class="add-button">
             <a class="item-control item-create" title="{{localize 'AQE.AddItem'}}" data-type="gear">
                 <i class="fas fa-plus"></i>
@@ -61,6 +63,7 @@
             <td class="gear-values">{{item.data.number}}</td>
             <td class="gear-values">{{item.data.weight}}</td>
             <td class="gear-values">{{item.data.capacity}}</td>
+            <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>
@@ -73,10 +76,13 @@
 </table>
 <table class="items-list">
     <colgroup>
-        <col span="1" style="width: 30%;">
         <col span="1" style="width: 20%;">
-        <col span="1" style="width: 20%;">
-        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 45%;">
+        <col span="1" style="width: 10%;">
+
         <col span="1" style="width: 10%;">
      </colgroup>
     <thead class="item gear-header">
@@ -84,6 +90,7 @@
         <th class="item-name">{{localize "AQE.Number"}}</th>
         <th class="item-name">{{localize "AQE.Weight"}}</th>
         <th class="item-name">{{localize "AQE.Capacity"}}</th>
+        <th class="item-name">{{localize "AQE.Tags"}}</th>
         <th><!-- controls to edit/delete item --></th>
     </thead>
     <tbody>
@@ -96,6 +103,7 @@
             <td class="gear-values">{{item.data.number}}</td>
             <td class="gear-values">{{item.data.weight}}</td>
             <td class="gear-values">{{item.data.capacity}}</td>
+            <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>

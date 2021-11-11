@@ -62,7 +62,6 @@
     "AQE.Range": "Alcance",
     "AQE.Damage": "Daño",
     "AQE.Armor": "Protecciones",
-    "AQE.DefMod": "Mod Def",
     
     "AQE.Gear": "Equipo",
     "AQE.Carried": "Equipado",
@@ -74,11 +73,8 @@
     "AQE.CostMO": "reinas",
     "AQE.CostMP": "nobles",
     "AQE.CostMC": "comunes",
-    "AQE.CostDOLAR": "Dolares",
-    "AQE.CostBIT": "Bityens",
-    "AQE.CostCR": "Creditos",
     "AQE.Encumbrance": "Carga",
-    "AQE.MaxEncumbrance": "Carga Máxima",
+    "AQE.MaxEncumbrance": "Sobrecargado",
 
     "AQE.AddItem": "Nuevo",
     "AQE.DelItem": "Borrar",

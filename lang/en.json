@@ -64,7 +64,6 @@
     "AQE.Range": "Range",
     "AQE.Damage": "Damage",
     "AQE.Armor": "Armor",
-    "AQE.DefMod": "Def Mod.",
     
     "AQE.Gear": "Gear",
     "AQE.Carried": "Carried",
@@ -76,9 +75,6 @@
     "AQE.CostMO": "reinas",
     "AQE.CostMP": "nobles",
     "AQE.CostMC": "comunes",
-    "AQE.CostDOLAR": "Dolars",
-    "AQE.CostBIT": "Bityens",
-    "AQE.CostCR": "Credits",
     "AQE.Encumbrance": "Encumbrance",
     "AQE.MaxEncumbrance": "Max Encumb.",
 

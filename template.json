@@ -162,6 +162,7 @@
     "types": ["weapon", "armor", "gear", "talent", "spell", "background"],
     "templates": {
       "gear-common": {
+        "tags": "",
         "number": 1,
         "description": "",
         "weight": 1,
@@ -177,7 +178,7 @@
         "range": 0
       },
       "armor-basic": {
-        "defmod": 0
+        "ca": 0
       }
     },
     "weapon": {

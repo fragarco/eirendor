@@ -44,14 +44,14 @@
 <table class="items-list">
     <colgroup>
         <col span="1" style="width: 30%;">
-        <col span="1" style="width: 15%;">
-        <col span="1" style="width: 45%;">
         <col span="1" style="width: 10%;">
+        <col span="1" style="width: 55%;">
+        <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
         <th class="item-name">{{localize "AQE.Armor"}}</th>
-        <th class="item-name">{{localize "AQE.ItemDef"}}</th>
-        <th></th>
+        <th class="item-name">{{localize "AQE.CA"}}</th>
+        <th class="item-name">{{localize "AQE.Tags"}}</th>
         <th class="add-button">
             <a class="item-control item-create" title="{{localize 'AQE.AddItem'}}" data-type="armor">
                 <i class="fas fa-plus"></i>
@@ -65,8 +65,8 @@
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
                 <span class="gear-name">{{item.name}}</span>
             </td>
-            <td class="gear-values">{{numberFormat item.data.defmod decimals=0 sign=true}}</td>
-            <td class="gear-values"></td>
+            <td class="gear-values">{{numberFormat item.data.ca decimals=0 sign=true}}</td>
+            <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>
