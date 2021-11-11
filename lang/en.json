@@ -10,6 +10,7 @@
     "AQE.XP": "Exp",
     "AQE.Tags": "Tags",
     "AQE.Langs": "Languages",
+    "AQE.Notes": "Notes",
 
     "AQE.Stats": "Stats",
     "AQE.Attributes": "Abilities",
@@ -34,17 +35,17 @@
     "AQE.Ini": "INI",
     "AQE.PE": "EP",
 
+    "AQE.Talents": "Talents",
+    "AQE.Backgrounds": "Backgrounds",
+    "AQE.Story": "Story, personality, appearance, etc.",
+
     "AQE.Spells": "Spells",
     "AQE.SpellRange": "Range",
     "AQE.Summary": "Summary",
     "AQE.Description": "Description",
 
-    "AQE.Backgrounds": "Backgrounds",
-    "AQE.Notes": "Notes",
 
 
-    "AQE.AddTalent": "New",
-    "AQE.Talents": "Talents",
 
     "AQE.Weapons": "Weapons",
     "AQE.TypeSTR": "Strength",
@@ -72,9 +73,9 @@
     "AQE.Weight": "Weight",
     "AQE.Capacity": "Capacity",
     "AQE.Cost": "Cost",
-    "AQE.CostMO": "gp",
-    "AQE.CostMP": "sp",
-    "AQE.CostMC": "cp",
+    "AQE.CostMO": "reinas",
+    "AQE.CostMP": "nobles",
+    "AQE.CostMC": "comunes",
     "AQE.CostDOLAR": "Dolars",
     "AQE.CostBIT": "Bityens",
     "AQE.CostCR": "Credits",
@@ -86,9 +87,5 @@
     "AQE.ModItem": "Edit",
     "AQE.Rolling": "Rolling",
     "AQE.INSDialog": "Rolling Instints",
-    "AQE.InsRollDetails": "Select relevant attribute",
-
-    "AQE.Story": "Story, personality, appearance, etc.",
-    "AQE.Allies": "Allies",
-    "AQE.Enemies": "Enemies"
+    "AQE.InsRollDetails": "Select relevant attribute"
 }

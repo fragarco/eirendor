@@ -10,6 +10,7 @@
     "AQE.XP": "Exp",
     "AQE.Tags": "Claves",
     "AQE.Langs": "Idiomas",
+    "AQE.Notes": "Notas",
 
     "AQE.Stats": "Estats",
     "AQE.Attributes": "Características",
@@ -34,16 +35,15 @@
     "AQE.Ini": "INI",
     "AQE.PE": "PE",
     
+    "AQE.Talents": "Talentos",
+    "AQE.Backgrounds": "Trasfondos",
+    "AQE.Story": "Historial, personalidad, aspecto físico, etc.",
+
     "AQE.Spells": "Conjuros",
     "AQE.SpellRange": "Rango",
     "AQE.Summary": "Resumen",
     "AQE.Description": "Descripción",
 
-    "AQE.Backgrounds": "Trasfondos",
-    "AQE.Notes": "Notas",
-
-    "AQE.AddTalent": "Nuevo",
-    "AQE.Talents": "Talentos",
 
     "AQE.Weapons": "Armas",
     "AQE.TypeSTR": "Fuerza",
@@ -71,9 +71,9 @@
     "AQE.Weight": "Peso",
     "AQE.Capacity": "Capacidad",
     "AQE.Cost": "Coste",
-    "AQE.CostMO": "mo",
-    "AQE.CostMP": "mp",
-    "AQE.CostMC": "mc",
+    "AQE.CostMO": "reinas",
+    "AQE.CostMP": "nobles",
+    "AQE.CostMC": "comunes",
     "AQE.CostDOLAR": "Dolares",
     "AQE.CostBIT": "Bityens",
     "AQE.CostCR": "Creditos",
@@ -85,8 +85,6 @@
     "AQE.ModItem": "Editar",
     "AQE.Rolling": "Tirada de",
     "AQE.INSDialog": "Tirada de Instintos",
-    "AQE.InsRollDetails": "Selecciona el atributo relevante para esta tirada",
+    "AQE.InsRollDetails": "Selecciona el atributo relevante para esta tirada"
 
-    "AQE.Story": "Historial, personalidad, aspecto físico, etc.",
-    "AQE.Allies": "Aliados",
-    "AQE.Enemies": "Enemigos"
+}

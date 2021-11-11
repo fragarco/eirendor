@@ -190,6 +190,7 @@
       "templates": ["gear-common"]
     },
     "talent": {
+      "tags": "",
       "description": ""
     },
     "spell": {
@@ -199,6 +200,7 @@
       "description": ""
     },
     "background": {
+      "tags": "",
       "description": ""
     }
   }

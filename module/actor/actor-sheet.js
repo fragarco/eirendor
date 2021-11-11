@@ -8,7 +8,7 @@ export class AQEActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["eirendor", "sheet", "actor"],
-      width: 600,
+      width: 750,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }]
     });
@@ -63,7 +63,7 @@ export class AQEActorSheet extends ActorSheet {
     const armor = [];
     const talents = [];
     const backgrounds = [];
-    const spells = [];
+    const spells = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []};
 
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
@@ -95,9 +95,16 @@ export class AQEActorSheet extends ActorSheet {
           }
           break;
         case 'talent': talents.push(i); break;
-        case 'spell':  spells.push(i); break;
+        case 'spell':  spells[item.range].push(i); break;
         case 'background': backgrounds.push(i); break;
       }
+    }
+    // Reorder spalls of same range by name 
+    for (let range=0; range<10; range++) {
+      spells[range].sort((a, b) => {
+        if (a.name > b.name) return 1;
+        return -1;
+      });
     }
     // Assign and return
     sheetData.gear = gear;
@@ -166,7 +173,6 @@ export class AQEActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
-    // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
@@ -181,7 +187,6 @@ export class AQEActorSheet extends ActorSheet {
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
 
-    // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
   }
 
@@ -198,77 +203,8 @@ export class AQEActorSheet extends ActorSheet {
   }
 
   /**
-   * callback for INS rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  async _onInsRoll(event) {
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-    const rolldata = this.actor.getRollData()
-    renderTemplate("systems/eirendor/templates/dialog/insroll.html")
-    .then( (dlg) => {
-      const callroll = (attribute, name) => {
-        const newroll = dataset.roll + " + " + attribute;
-        const newlabel = dataset.label + "/" + game.i18n.localize(name);
-        this.__handleSimpleDualRoll({roll: newroll, label: newlabel});
-      }
-      new Dialog({
-        title: game.i18n.localize('AQE.INSDialog'),
-        content: dlg,
-        buttons: {
-          a: {
-            label: game.i18n.localize('AQE.str'),
-            callback: () => (callroll(rolldata.attributes.str.mod, "AQE.str")),
-          },
-          b: {
-            label: game.i18n.localize('AQE.dex'),
-            callback: () => (callroll(rolldata.attributes.dex.mod, "AQE.dex")),
-          },
-          c: {
-            label: game.i18n.localize('AQE.con'),
-            callback: () => (callroll(rolldata.attributes.con.mod, "AQE.con")),
-          },
-          d: {
-            label: game.i18n.localize('AQE.int'),
-            callback: () => (callroll(rolldata.attributes.int.mod, "AQE.int")),
-          },
-          e: {
-            label: game.i18n.localize('AQE.wis'),
-            callback: () => (callroll(rolldata.attributes.wis.mod, "AQE.wis")),
-          },
-          f: {
-            label: game.i18n.localize('AQE.cha'),
-            callback: () => (callroll(rolldata.attributes.cha.mod, "AQE.cha")),
-          },
-        },
-        default: 'str'
-      }).render(true);
-    });
-  }
-
-  /**
-   * callback for clickable CaC attack rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-   async _onAttackRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-    const rolldata = this.actor.getRollData();
-    // reaplace attribute name by its value if it appears in the damage roll
-    const attributes = Object.keys(rolldata.attributes);
-    attributes.forEach((a) => {
-      const label = game.i18n.localize(rolldata.attributes[a].label);
-      dataset.damage = dataset.damage.replace(label, rolldata.attributes[a].mod);
-    });
-    await this.__handleAttackDualRoll(dataset);
-  }
-
-  /**
    * Handle simple dual rolls.
-   * @param {DOMSTringMap} dataset originating click event
+   * @param {DOMSTringMap} dataset originating click event roll data
    * @private
    */
   async __handleSimpleDualRoll(dataset) {
@@ -299,8 +235,27 @@ export class AQEActorSheet extends ActorSheet {
   }
 
   /**
-   * Handle simple dual rolls.
-   * @param {DOMSTringMap} dataset originating click event
+   * callback for clickable CaC attack rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+   async _onAttackRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const rolldata = this.actor.getRollData();
+    // reaplace attribute name by its value if it appears in the damage roll
+    const attributes = Object.keys(rolldata.attributes);
+    attributes.forEach((a) => {
+      const label = game.i18n.localize(rolldata.attributes[a].label);
+      dataset.damage = dataset.damage.replace(label, rolldata.attributes[a].mod);
+    });
+    await this.__handleAttackDualRoll(dataset);
+  }
+
+  /**
+   * Handle dual attack rolls.
+   * @param {DOMSTringMap} dataset originating click event roll data
    * @private
    */
    async __handleAttackDualRoll(dataset) {
