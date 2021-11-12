@@ -151,6 +151,9 @@ export class AQEActorSheet extends ActorSheet {
       item.update({'data.stored': stored});
     });
 
+    // Toggle prepared or proficient item states
+    html.find('.item-toggle').click(this._onToggleItem.bind(this));
+
     // Rollable abilities.
     html.find('.rollable').click(this._onSimpleDualRoll.bind(this));
     html.find('.attackroll').click(this._onAttackRoll.bind(this));
@@ -239,7 +242,7 @@ export class AQEActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-   async _onAttackRoll(event) {
+  async _onAttackRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -258,7 +261,7 @@ export class AQEActorSheet extends ActorSheet {
    * @param {DOMSTringMap} dataset originating click event roll data
    * @private
    */
-   async __handleAttackDualRoll(dataset) {
+  async __handleAttackDualRoll(dataset) {
     const rollingstr = game.i18n.localize("AQE.AttackWith");
     if (dataset.roll) {
       let roll1 = new Roll(dataset.roll, this.actor.getRollData());
@@ -280,5 +283,17 @@ export class AQEActorSheet extends ActorSheet {
         }
       );
     }
+  }
+
+  /**
+   * Handle toggling the state of an Owned Item within the Actor.
+   * @param {Event} ev        The triggering click event.
+   * @private
+   */
+  _onToggleItem(ev) {
+    event.preventDefault();
+    const li = $(ev.currentTarget).parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+    item.update({'data.proficient': !item.data.data.proficient});
   }
 }

@@ -97,7 +97,7 @@ export class AQEActor extends Actor {
     for (let i of actorData.items) {
       const item = i.data;
       let base = item.data.addmod;
-      if (item.proficient) base = base + data.traits.bc.value;
+      if (item.data.proficient) base = base + data.traits.bc.value;
       if (item.type === 'weapon') {
         switch(item.data.weapontype) {
           case "strtype":

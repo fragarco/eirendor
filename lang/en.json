@@ -53,6 +53,7 @@
     "AQE.TypeOTH": "Special",
  
     "AQE.Combat": "Combat",
+    "AQE.Proficient": "Proficient",
     "AQE.Attack": "Attack",
     "AQE.ItemDef": "Defense",
     "AQE.AttackWith": "Attack with",
