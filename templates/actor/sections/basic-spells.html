@@ -1,3 +1,27 @@
+<div class="flexrow">
+    <div style="max-width: 200px;">
+        <select class="flexrow spells-filter" name="data.filters.spells">
+            {{#select data.filters.spells}}
+            <option value="ALL">{{localize "AQE.ViewAll"}}</option>
+            {{#each data.traits.runes as |rune key|}}
+            <option value="{{key}}">{{localize rune.label}}</option>
+            {{/each}}
+            {{/select}}
+        </select>
+        <label class="velabel">{{localize "AQE.SpellsFilter"}}</label>
+    </div>
+    <div style="text-align: center;">
+        <ul class="runes-box flexrow">
+            <li>{{localize "AQE.Runes"}}</li>
+            {{#each data.traits.runes as |rune key|}}
+            <li>
+                <input name="data.traits.runes.{{key}}.value" type="text" value="{{rune.value}}" data-dtype="Number"/>
+                <label class="velabel">{{localize rune.label}}</label>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
 <table class="items-list">
     <colgroup>
         <col span="1" style="width: 20%;">

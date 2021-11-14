@@ -112,7 +112,54 @@
           "mp": {
             "value": 0,
             "max": 0
+          },
+          "runes": {
+            "level0": {
+              "value": 0,
+              "label": "AQE.Level0"
+            },
+            "level1": {
+              "value": 0,
+              "label": "AQE.Level1"
+            },
+            "level2": {
+              "value": 0,
+              "label": "AQE.Level2"
+            },
+            "level3": {
+              "value": 0,
+              "label": "AQE.Level3"
+            },
+            "level4": {
+              "value": 0,
+              "label": "AQE.Level4"
+            },
+            "level5": {
+              "value": 0,
+              "label": "AQE.Level5"
+            },
+            "level6": {
+              "value": 0,
+              "label": "AQE.Level6"
+            },
+            "level7": {
+              "value": 0,
+              "label": "AQE.Level7"
+            },
+            "level8": {
+              "value": 0,
+              "label": "AQE.Level8"
+            },
+            "level9": {
+              "value": 0,
+              "label": "AQE.Level9"
+            }
           }
+        }
+      },
+      "base-filters": {
+        "filters": {
+          "spells": "ALL"
         }
       },
       "base-encumbrance": {
@@ -145,7 +192,8 @@
         "base-traits",
         "base-encumbrance",
         "base-money",
-        "base-bio"
+        "base-bio",
+        "base-filters"
       ]
     },
     "non-player": {

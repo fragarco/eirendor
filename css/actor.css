@@ -212,6 +212,12 @@
     padding: 0;
 }
 
+.eirendor.sheet .spells ul.runes-box {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .eirendor.sheet .combat .item-list,
 .eirendor.sheet .gear .item-list,
 .eirendor.sheet .spells .item-list,
