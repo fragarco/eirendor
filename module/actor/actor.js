@@ -92,24 +92,30 @@ export class AQEActor extends Actor {
    * 
    * Calculate attack values for all equiped weapons.
    */
+  _getAttributeModFromName(attrname, attributes) {
+    switch(attrname) {
+      case "str":
+        return attributes.str.mod;
+      case "dex":
+        return attributes.dex.mod;
+    }
+    return 0;
+  }
+
+  /**
+   * 
+   * Calculate attack values for all equiped weapons.
+   */
    _prepareAttackData(actorData) {
     const data = actorData.data;
+
     for (let i of actorData.items) {
       const item = i.data;
       let base = item.data.addmod;
       if (item.data.proficient) base = base + data.traits.bc.value;
       if (item.type === 'weapon') {
-        switch(item.data.weapontype) {
-          case "strtype":
-            item.data.attackmod = base + data.attributes.str.mod;
-            break;
-          case "dextype":
-            item.data.attackmod = base + data.attributes.dex.mod;
-            break;
-          case "othtype":
-            item.data.attackmod = base;
-            break;
-        }
+        item.data.attackmod = base + this._getAttributeModFromName(item.data.weapontype, data.attributes);
+        item.data.dmgmod = this._getAttributeModFromName(item.data.dmgtype, data.attributes);
       }
     }
   }

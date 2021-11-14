@@ -61,6 +61,7 @@
     "AQE.TypeSTR": "Strength",
     "AQE.TypeDEX": "Dexterity",
     "AQE.TypeOTH": "Special",
+    "AQE.TypeVoid": "Nothing",
  
     "AQE.Combat": "Combat",
     "AQE.Proficient": "Proficient",
@@ -74,6 +75,7 @@
     "AQE.Ammunition": "Ammunition",
     "AQE.Range": "Range",
     "AQE.Damage": "Damage",
+    "AQE.DamageMod": "Damage Mod.",
     "AQE.Armor": "Armor",
     
     "AQE.Gear": "Gear",

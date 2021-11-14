@@ -62,7 +62,8 @@
     "AQE.TypeSTR": "Fuerza",
     "AQE.TypeDEX": "Destreza",
     "AQE.TypeOTH": "Especial",
- 
+    "AQE.TypeVoid": "Ninguno",
+
     "AQE.Combat": "Combate",
     "AQE.Proficient": "Competente",
     "AQE.Attack": "Ataque",
@@ -75,6 +76,7 @@
     "AQE.Ammunition": "Munición",
     "AQE.Range": "Alcance",
     "AQE.Damage": "Daño",
+    "AQE.DamageMod": "Mod. Daño",
     "AQE.Armor": "Protecciones",
     
     "AQE.Gear": "Equipo",

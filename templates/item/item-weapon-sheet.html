@@ -12,9 +12,9 @@
                 <div class="name-side-box">
                     <select class="flexrow weapon-type" name="data.weapontype">
                         {{#select data.weapontype}}
-                        <option value="strtype">{{localize "AQE.TypeSTR"}}</option>
-                        <option value="dextype">{{localize "AQE.TypeDEX"}}</option>
-                        <option value="othtype">{{localize "AQE.TypeOTH"}}</option>
+                        <option value="str">{{localize "AQE.TypeSTR"}}</option>
+                        <option value="dex">{{localize "AQE.TypeDEX"}}</option>
+                        <option value="oth">{{localize "AQE.TypeOTH"}}</option>
                         {{/select}}
                     </select>
                     <label class="velabel">{{localize "AQE.AttackWith"}}</label>
@@ -32,6 +32,16 @@
                 <li>
                     <input class="valuebox" type="text" name="data.damage" value="{{data.damage}}" data-dtype="String"/>
                     <label class="velabel">{{localize "AQE.Damage"}}</label>
+                </li>
+                <li>
+                    <select id="damage-mod-selector" name="data.dmgtype">
+                        {{#select data.dmgtype}}
+                        <option value="str">{{localize "AQE.TypeSTR"}}</option>
+                        <option value="dex">{{localize "AQE.TypeDEX"}}</option>
+                        <option value="oth">{{localize "AQE.TypeVoid"}}</option>
+                        {{/select}}
+                    </select>
+                    <label class="velabel">{{localize "AQE.DamageMod"}}</label>
                 </li>
             </ul>
             <div>

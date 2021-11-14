@@ -24,7 +24,7 @@
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span class="attackroll gear-name" data-damage="{{item.data.damage}}" data-roll="1d20 + {{item.data.attackmod}}" data-label="{{item.name}}">{{item.name}}</span>
+                <span class="attackroll gear-name" data-damage="{{item.data.damage}} + {{item.data.dmgmod}}" data-roll="1d20 + {{item.data.attackmod}}" data-label="{{item.name}}">{{item.name}}</span>
             </td>
             <td class="gear-values">
                 <div class="item-controls">
@@ -36,7 +36,9 @@
             <td class="gear-values">
                 <span class="gear-name" >{{numberFormat item.data.attackmod decimals=0 sign=true}}</span>
             </td>
-            <td class="gear-values">{{item.data.damage}}</td>
+            <td class="gear-values">
+                {{item.data.damage}} + {{item.data.dmgmod}}
+            </td>
             <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">

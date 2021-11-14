@@ -64,7 +64,7 @@ export class AQEActorSheet extends ActorSheet {
     const talents = [];
     const backgrounds = [];
     const spells = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []};
-
+  
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
       let item = i.data;
@@ -95,17 +95,23 @@ export class AQEActorSheet extends ActorSheet {
           }
           break;
         case 'talent': talents.push(i); break;
-        case 'spell':  spells[item.range].push(i); break;
+        case 'spell':
+          if (actorData.data.filters.spells == "ALL" ||
+              actorData.data.filters.spells == ("level" + item.range)) {
+            spells[item.range].push(i);
+          }
+          break;
         case 'background': backgrounds.push(i); break;
       }
     }
-    // Reorder spalls of same range by name 
+    // Reorder spells of same range by name 
     for (let range=0; range<10; range++) {
       spells[range].sort((a, b) => {
         if (a.name > b.name) return 1;
         return -1;
       });
     }
+
     // Assign and return
     sheetData.gear = gear;
     sheetData.stored = stored;

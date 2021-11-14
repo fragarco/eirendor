@@ -219,8 +219,10 @@
       },
       "weapon-basic": {
         "proficient": false,
-        "weapontype": "strtype",
+        "weapontype": "str",
+        "dmgtype": "str",
         "attackmod": 0,
+        "dmgmod": 0,
         "addmod": 0,
         "damage": "1d4"
       },
