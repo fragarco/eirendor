@@ -36,8 +36,14 @@
     max-width: 8em;
 }
 
-#damage-mod-selector,
-.eirendor.sheet.item .name-line select,
+#attack-mod-selector,
+#damage-mod-selector {
+    height: 20px;
+    border: 1px solid var(--color-label);
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+}
+
 .eirendor.sheet.item .name-line input {
     height: 20px;
     margin: 0;

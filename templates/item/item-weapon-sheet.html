@@ -9,8 +9,14 @@
                     <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AQE.Name'}}"/>
                     <label class="velabel">{{localize 'AQE.Name'}}</label>
                 </h1>
-                <div class="name-side-box">
-                    <select class="flexrow weapon-type" name="data.weapontype">
+            </div>
+            <ul class="flexrow">
+                <li>
+                    <input class="valuebox" type="text" name="data.addmod" value="{{numberFormat data.addmod decimals=0 sign=true}}" data-dtype="Number"/>
+                    <label class="velabel">{{localize "AQE.AddMod"}}</label>
+                </li>
+                <li>
+                    <select id="attack-mod-selector" class="flexrow" name="data.weapontype">
                         {{#select data.weapontype}}
                         <option value="str">{{localize "AQE.TypeSTR"}}</option>
                         <option value="dex">{{localize "AQE.TypeDEX"}}</option>
@@ -18,23 +24,13 @@
                         {{/select}}
                     </select>
                     <label class="velabel">{{localize "AQE.AttackWith"}}</label>
-                </div>
-            </div>
-            <ul class="flexrow">
-                <li>
-                    <input class="valuebox" type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "AQE.Weight"}}</label>
-                </li>
-                <li>
-                    <input class="valuebox" type="text" name="data.addmod" value="{{numberFormat data.addmod decimals=0 sign=true}}" data-dtype="Number"/>
-                    <label class="velabel">{{localize "AQE.AddMod"}}</label>
                 </li>
                 <li>
                     <input class="valuebox" type="text" name="data.damage" value="{{data.damage}}" data-dtype="String"/>
                     <label class="velabel">{{localize "AQE.Damage"}}</label>
                 </li>
                 <li>
-                    <select id="damage-mod-selector" name="data.dmgtype">
+                    <select id="damage-mod-selector" class="flexrow" name="data.dmgtype">
                         {{#select data.dmgtype}}
                         <option value="str">{{localize "AQE.TypeSTR"}}</option>
                         <option value="dex">{{localize "AQE.TypeDEX"}}</option>
@@ -44,10 +40,16 @@
                     <label class="velabel">{{localize "AQE.DamageMod"}}</label>
                 </li>
             </ul>
-            <div>
-                <input class="description-line" type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
-                <label class="velabel">{{localize "AQE.Tags"}}</label>
-            </div>
+            <ul class="flexrow">
+                <li style="max-width: 95px;">
+                    <input class="valuebox" type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+                    <label class="velabel">{{localize "AQE.Weight"}}</label>
+                </li>
+                <li>
+                    <input class="description-line" type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
+                    <label class="velabel">{{localize "AQE.Tags"}}</label>
+                </li>
+            </ul>
         </section>
     </header>
 
