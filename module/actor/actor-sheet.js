@@ -76,7 +76,7 @@ export class AQEActorSheet extends ActorSheet {
             stored.push(i);
            } else {
             gear.push(i);
-            weapons.push(i);
+            if (item.number > 0) weapons.push(i);
           }
           break;
         case 'armor':
@@ -84,7 +84,7 @@ export class AQEActorSheet extends ActorSheet {
             stored.push(i);
           } else {
             gear.push(i);
-            armor.push(i);
+            if (item.number > 0) armor.push(i);
           }
           break;
         case 'gear':
@@ -99,6 +99,7 @@ export class AQEActorSheet extends ActorSheet {
           if (actorData.data.filters.spells == "ALL" ||
               actorData.data.filters.spells == ("level" + item.range)) {
             spells[item.range].push(i);
+            if (item.range === 0) item.runes = 1;
           }
           break;
         case 'background': backgrounds.push(i); break;
@@ -159,6 +160,9 @@ export class AQEActorSheet extends ActorSheet {
 
     // Toggle prepared or proficient item states
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
+    // Add or remove item quantity (prepared spells, arrows, etc.)
+    html.find('.item-add').click(this._onItemAdd.bind(this));
+    html.find('.item-del').click(this._onItemDel.bind(this));
 
     // Rollable abilities.
     html.find('.rollable').click(this._onSimpleDualRoll.bind(this));
@@ -297,9 +301,57 @@ export class AQEActorSheet extends ActorSheet {
    * @private
    */
   _onToggleItem(ev) {
-    event.preventDefault();
+    ev.preventDefault();
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
     item.update({'data.proficient': !item.data.data.proficient});
+  }
+
+  /**
+   * Handle toggling the state of an Owned Item within the Actor.
+   * @param {Event} ev        The triggering click event.
+   * @private
+   */
+   _onItemAdd(ev) {
+    ev.preventDefault();
+    const li = $(ev.currentTarget).parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+    switch (item.data.type) {
+      case "spell":
+        const runes = item.data.data.runes + 1
+        item.update({'data.runes': item.data.data.range === 0 ? 1 : runes})
+        break;
+      case "weapon":
+      case "armor":
+      case "gear":
+        let num = item.data.data.number + 1;
+        item.update({'data.number': num});
+        break;
+    }
+  }
+
+  /**
+   * Handle toggling the state of an Owned Item within the Actor.
+   * @param {Event} ev        The triggering click event.
+   * @private
+   */
+   _onItemDel(ev) {
+    ev.preventDefault();
+    const li = $(ev.currentTarget).parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+    switch (item.data.type) {
+      case "spell":
+        let runes = item.data.data.runes - 1;
+        if (runes < 0) runes = 0;
+        item.update({'data.runes': item.data.data.range === 0 ? 1 : runes});
+        break;
+      case "weapon":
+      case "armor":
+      case "gear":
+        let num = item.data.data.number - 1;
+        if (num < 0) num = 0;
+        item.update({'data.number': num});
+        break;
+    }
   }
 }

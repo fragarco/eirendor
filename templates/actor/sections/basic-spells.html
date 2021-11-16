@@ -51,15 +51,19 @@
     <colgroup>
         <col span="1" style="width: 20%;">
         <col span="1" style="width: 5%;">
-        <col span="1" style="width: 35%;">
-        <col span="1" style="width: 35%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 55%;">
         <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
         <th class="item-name">{{localize "AQE.Name"}}</th>
         <th class="item-name"> {{localize "AQE.SpellRange"}}</th>
+        <th></th>
+        <th class="item-name">{{localize "AQE.Runes"}}</th>
+        <th></th>
         <th class="item-name"> {{localize "AQE.Tags"}}</th>
-        <th class="item-name">{{localize "AQE.Summary"}}</th>
         <th class="add-button">
             <a class="item-control item-create" title="{{localize 'AQE.AddItem'}}" data-type="spell">
                 <i class="fas fa-plus"></i>
@@ -72,11 +76,17 @@
             <tr class="item" data-item-id="{{item._id}}">
                 <td class="flexrow">
                     <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                    <span class="spell-name">{{item.name}}</span>
+                    <span class="spell-name" title="{{item.data.summary}}">{{item.name}}</span>
                 </td>
                 <td style="text-align: center;">{{item.data.range}}</td>
+                <td style="text-align: right;">
+                    <a class="item-control item-add" title="{{localize 'AQE.IncreaseItem'}}"><i class="fas fa-plus"></i></a>
+                </td>
+                <td style="text-align: center;">{{item.data.runes}}</td>
+                <td style="text-align: left;">
+                    <a class="item-contol item-del" title="{{localize 'AQE.DecreaseItem'}}"><i class="fas fa-minus"></i></a>
+                </td>
                 <td style="text-align: center;">{{item.data.tags}}</td>
-                <td style="text-align: center;">{{item.data.summary}}</td>
                 <td style="text-align: center;">
                     <div class="item-controls">
                         <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>

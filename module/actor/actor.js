@@ -63,6 +63,9 @@ export class AQEActor extends Actor {
     for (let i of actorData.items) {
       const item = i.data;
       if (item.type === 'weapon' || item.type === 'armor' || item.type === 'gear') {
+        const weight = item.data.unitweight * item.data.number;
+        // Round result so it includes 2 decimal positions max
+        item.data.weight = Math.round(weight * 100) / 100;
         if (!item.data.stored) {
           encumbrance = encumbrance + item.data.weight;
         }
@@ -94,14 +97,13 @@ export class AQEActor extends Actor {
    */
    _prepareAttackData(actorData) {
     const data = actorData.data;
-
     for (let i of actorData.items) {
       const item = i.data;
       let base = item.data.addmod;
       if (item.data.proficient) base = base + data.traits.bc.value;
       if (item.type === 'weapon') {
-        item.data.attackmod = base + attributes[item.data.weapontype].mod;
-        item.data.dmgmod = attributes[item.data.dmgtype].mod;
+        item.data.attackmod = base + data.attributes[item.data.weapontype].mod;
+        item.data.dmgmod = data.attributes[item.data.dmgtype].mod;
       }
     }
   }

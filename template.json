@@ -268,6 +268,7 @@
         "tags": "",
         "number": 1,
         "description": "",
+        "unitweight": 1,
         "weight": 1,
         "capacity": 0,
         "stored": false
@@ -302,7 +303,8 @@
       "range": 0,
       "tags": "",
       "summary": "",
-      "description": ""
+      "description": "",
+      "runes": 0
     },
     "background": {
       "tags": "",

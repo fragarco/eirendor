@@ -35,15 +35,19 @@
 <table class="items-list">
     <colgroup>
         <col span="1" style="width: 20%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
         <col span="1" style="width: 10%;">
-        <col span="1" style="width: 10%;">
-        <col span="1" style="width: 10%;">
-        <col span="1" style="width: 45%">
+        <col span="1" style="width: 45%;">
         <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
         <th class="item-name">{{localize "AQE.Carried"}}</th>
+        <th></th>
         <th class="item-name">{{localize "AQE.Number"}}</th>
+        <th></th>
         <th class="item-name">{{localize "AQE.Weight"}}</th>
         <th class="item-name">{{localize "AQE.Capacity"}}</th>
         <th class="item-name">{{localize "AQE.Tags"}}</th>
@@ -60,7 +64,13 @@
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
                 <span class="storable gear-name">{{item.name}}</span>
             </td>
+            <td style="text-align: right;">
+                <a class="item-control item-add" title="{{localize 'AQE.IncreaseItem'}}"><i class="fas fa-plus"></i></a>
+            </td>
             <td class="gear-values">{{item.data.number}}</td>
+            <td style="text-align: left;">
+                <a class="item-contol item-del" title="{{localize 'AQE.DecreaseItem'}}"><i class="fas fa-minus"></i></a>
+            </td>
             <td class="gear-values">{{item.data.weight}}</td>
             <td class="gear-values">{{item.data.capacity}}</td>
             <td class="gear-values">{{item.data.tags}}</td>
@@ -77,17 +87,19 @@
 <table class="items-list">
     <colgroup>
         <col span="1" style="width: 20%;">
-        <col span="1" style="width: 10%;">
-        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
         <col span="1" style="width: 10%;">
         <col span="1" style="width: 45%;">
-        <col span="1" style="width: 10%;">
-
-        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 5%;">
      </colgroup>
     <thead class="item gear-header">
         <th class="item-name">{{localize "AQE.Stored"}}</th>
+        <th></th>
         <th class="item-name">{{localize "AQE.Number"}}</th>
+        <th></th>
         <th class="item-name">{{localize "AQE.Weight"}}</th>
         <th class="item-name">{{localize "AQE.Capacity"}}</th>
         <th class="item-name">{{localize "AQE.Tags"}}</th>
@@ -100,7 +112,9 @@
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
                 <span class="storable gear-name">{{item.name}}</span>
             </td>
+            <td></td>
             <td class="gear-values">{{item.data.number}}</td>
+            <td></td>
             <td class="gear-values">{{item.data.weight}}</td>
             <td class="gear-values">{{item.data.capacity}}</td>
             <td class="gear-values">{{item.data.tags}}</td>
