@@ -21,11 +21,25 @@
     "AQE.int": "INT",
     "AQE.wis": "SAB",
     "AQE.cha": "CAR",
+    "AQE.san": "COR",
 
     "AQE.Saves": "Tiradas de salvación",
     "AQE.Fortitude": "Fortaleza",
     "AQE.Reflex": "Reflejos",
     "AQE.Will": "Voluntad",
+
+    "AQE.Fatigue": "Agotamiento",
+    "AQE.Fatigue1": "Desventaja en tiradas de atributo y no recuperar PE",
+    "AQE.Fatigue2": "Movimiento reducido a la mitad",
+    "AQE.Fatigue3": "Desventaja en tiradas de ataque y salvaciones",
+    "AQE.Fatigue4": "PG máximos reducidos a la mitad. No se pueden gastar PE",
+    "AQE.Fatigue5": "Movimiento reducido a 0. El siguiente nivel implica muerte",
+
+    "AQE.Sanity": "Cordura",
+    "AQE.FlareupsLabel": "Brotes de locura:",
+    "AQE.FlareupTip1": "Primer brote de locura",
+    "AQE.FlareupTip2": "Segundo brote de locura",
+    "AQE.FlareupTip3": "Tercer brote de locura",
 
     "AQE.BC": "BC",
     "AQE.Mov": "Mov",
@@ -40,6 +54,9 @@
     "AQE.Story": "Historial, personalidad, aspecto físico, etc.",
 
     "AQE.Spells": "Conjuros",
+    "AQE.MainChar": "Característica",
+    "AQE.SpellsAtackMod": "Ataque",
+    "AQE.SpellsCD": "DC",
     "AQE.SpellRange": "Rango",
     "AQE.Summary": "Resumen",
     "AQE.Description": "Descripción",

@@ -7,7 +7,7 @@
                 <label class="rollable" data-roll="1d20 + {{attribute.mod}}" data-comp="{{attribute.proficient}}" data-label="{{localize attribute.label}}">{{localize attribute.label}}</label>
                 <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
                 <span>{{numberFormat attribute.mod decimals=0 sign=true}}</span>
-                <input style="margin-top: 10px" type="checkbox" name="data.attributes.{{key}}.proficient" {{checked attribute.proficient}}/>
+                <input style="margin-top: 10px" type="checkbox" name="data.attributes.{{key}}.proficient" {{checked attribute.proficient}} {{#if attribute.readonly}}disabled{{/if}}/>
             </li>
             {{/each}}
         </ol>
@@ -23,6 +23,20 @@
                 </li>
             {{/each}}
         </ol>
+        <h3 class="subhead">{{localize "AQE.Fatigue"}}</h3>
+        <div class="flexrow" style="margin-bottom: 10px;">
+            {{#each data.fatigue as |level key|}}
+                <label class="velabel">{{key}}:</label>
+                <input type="checkbox" title="{{localize level.tip}}" name="data.fatigue.{{key}}.value" {{checked level.value}} />
+            {{/each}}
+        </div>
+        <h3 class="subhead">{{localize "AQE.Sanity"}}</h3>
+        <div class="flexrow">
+            <label>{{localize "AQE.FlareupsLabel"}}</label>
+            {{#each data.flareups as |level key|}}
+                <input style="margin-top: 12px" type="checkbox" title="{{localize level.tip}}" name="data.flareups.{{key}}.value" {{checked level.value}} />
+            {{/each}}
+        </div>
     </div>
     <div class="talents flexcol">
         <h3 class="subhead flexrow">

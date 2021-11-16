@@ -1,5 +1,30 @@
 <div class="flexrow">
-    <div style="max-width: 200px;">
+    <div class="flex0">
+        <select class="flexrow spells-filter" name="data.traits.mp.char">
+            {{#select data.traits.mp.char}}
+            <option value="int">{{localize "AQE.int"}}</option>
+            <option value="wis">{{localize "AQE.wis"}}</option>
+            <option value="cha">{{localize "AQE.cha"}}</option>
+            {{/select}}
+        </select>
+        <label class="velabel">{{localize "AQE.MainChar"}}</label>
+    </div>
+    <div style="max-width: 100px; text-align: center;">
+        <ul class="runes-box flexrow">
+            <li style="margin-top: 5px;">
+                <a class="rollable" data-roll="1d20 + {{data.traits.mp.atkmod}}" data-comp="{{false}}" data-label="{{localize 'AQE.Spells'}}"><i class="fas fa-dice-d20"></i></a>
+            </li>
+            <li>
+                <input type="text" name="data.traits.mp.atkmod" value="{{numberFormat data.traits.mp.atkmod decimals=0 sign=true}}" data-dtype="Number" readonly/>
+                <label class="velabel">{{localize "AQE.SpellsAtackMod"}}</label>
+            </li>
+            <li>
+                <input name="data.traits.mp.CD" type="text" value="{{data.traits.mp.CD}}" data-dtype="Number" readonly/>
+                <label class="velabel">{{localize "AQE.SpellsCD"}}</label>
+            </li>
+        </ul>
+    </div>
+    <div class="flex0" style="margin-left: 10px; margin-right: 10px;">
         <select class="flexrow spells-filter" name="data.filters.spells">
             {{#select data.filters.spells}}
             <option value="ALL">{{localize "AQE.ViewAll"}}</option>
@@ -12,7 +37,7 @@
     </div>
     <div style="text-align: center;">
         <ul class="runes-box flexrow">
-            <li>{{localize "AQE.Runes"}}</li>
+            <li style="margin-top: 5px;">{{localize "AQE.Runes"}}</li>
             {{#each data.traits.runes as |rune key|}}
             <li>
                 <input name="data.traits.runes.{{key}}.value" type="text" value="{{rune.value}}" data-dtype="Number"/>

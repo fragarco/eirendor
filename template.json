@@ -34,37 +34,50 @@
             "value": 10,
             "mod": 0,
             "proficient": false,
+            "readonly": false,
             "label": "AQE.str"
           },
           "dex": {
             "value": 10,
             "mod": 0,
             "proficient": false,
+            "readonly": false,
             "label": "AQE.dex"
           },
           "con": {
             "value": 10,
             "mod": 0,
             "proficient": false,
+            "readonly": false,
             "label": "AQE.con"
           },
           "int": {
             "value": 10,
             "mod": 0,
             "proficient": false,
+            "readonly": false,
             "label": "AQE.int"
           },
           "wis": {
             "value": 10,
             "mod": 0,
             "proficient": false,
+            "readonly": false,
             "label": "AQE.wis"
           },
           "cha": {
             "value": 10,
             "mod": 0,
             "proficient": false,
+            "readonly": false,
             "label": "AQE.cha"
+          },
+          "san": {
+            "value": 10,
+            "mod": 0,
+            "proficient": false,
+            "readonly": true,
+            "label": "AQE.san"
           }
         }
       },
@@ -84,6 +97,22 @@
             "value": 0,
             "proficient": false,
             "label": "AQE.Will"
+          }
+        }
+      },
+      "base-sanity": {
+        "flareups": {
+          "1": {
+            "value": false,
+            "tip": "AQE.FlareupTip1"
+          },
+          "2": {
+            "value": false,
+            "tip": "AQE.FlareupTip2"
+          },
+          "3": {
+            "value": false,
+            "tip": "AQE.FlareupTip3"
           }
         }
       },
@@ -111,7 +140,10 @@
           },
           "mp": {
             "value": 0,
-            "max": 0
+            "max": 0,
+            "char": "int",
+            "atkmod": 0,
+            "CD": 8
           },
           "runes": {
             "level0": {
@@ -166,6 +198,28 @@
         "encumbrance": {
           "current": 0,
           "max": 0
+        },
+        "fatigue": {
+          "1": {
+            "value": false,
+            "tip": "AQE.Fatigue1"
+          },
+          "2": {
+            "value": false,
+            "tip": "AQE.Fatigue2"
+          },
+          "3": {
+            "value": false,
+            "tip": "AQE.Fatigue3"
+          },
+          "4": {
+            "value": false,
+            "tip": "AQE.Fatigue4"
+          },
+          "5": {
+            "value": false,
+            "tip": "AQE.Fatigue5"
+          }
         }
       },
       "base-money": {
@@ -189,6 +243,7 @@
         "base-header",
         "base-attributes",
         "base-saves",
+        "base-sanity",
         "base-traits",
         "base-encumbrance",
         "base-money",

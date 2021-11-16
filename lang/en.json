@@ -21,11 +21,25 @@
     "AQE.int": "INT",
     "AQE.wis": "WIS",
     "AQE.cha": "CHA",
+    "AQE.san": "SAN",
 
     "AQE.Saves": "Saving Throws",
     "AQE.Fortitude": "Fortitude",
     "AQE.Reflex": "Reflex",
     "AQE.Will": "Will",
+
+    "AQE.Fatigue": "Exhaustion",
+    "AQE.Fatigue1": "Disadvantage on Ability Checks and no gain of EP",
+    "AQE.Fatigue2": "Speed halved",
+    "AQE.Fatigue3": "Disadvantage on Attack rolls and Saving Throws",
+    "AQE.Fatigue4": "Hit point maximum halved. EP cannot be used",
+    "AQE.Fatigue5": "Speed reduced to 0. Next level means the death",
+
+    "AQE.Sanity": "Sanity",
+    "AQE.FlareupsLabel": "Madness flareups:",
+    "AQE.FlareupTip1": "First madness flareup",
+    "AQE.FlareupTip2": "Second madness flareup",
+    "AQE.FlareupTip3": "Third madness flareup",
 
     "AQE.BC": "Prof",
     "AQE.Mov": "Mov",
@@ -40,6 +54,9 @@
     "AQE.Story": "Story, personality, appearance, etc.",
 
     "AQE.Spells": "Spells",
+    "AQE.MainChar": "Ability",
+    "AQE.SpellsAtackMod": "Attack",
+    "AQE.SpellsCD": "DC",
     "AQE.SpellRange": "Range",
     "AQE.Summary": "Summary",
     "AQE.Description": "Description",
