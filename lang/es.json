@@ -1,7 +1,9 @@
 {
     "AQE.Setting.Version": "Versión",
     "AQE.Setting.VersionHint": "No modificar, se usa internamente en procesos de actualización",
- 
+    "AQE.Setting.Flavor": "Hack/Versión de Eirendor",
+    "AQE.Setting.FlavorHint": "Eirendor es un sistema que cuenta con un par de 'hacks' o sabores con pequeñas diferencias entre ellos",
+
     "AQE.Name": "Nombre",
     "AQE.Type": "Tipo",
     "AQE.Class": "Clase",
@@ -107,17 +109,19 @@
     "AQE.Weight": "Peso",
     "AQE.Capacity": "Capacidad",
     "AQE.Cost": "Coste",
+    "AQE.Encumbrance": "Carga",
+    "AQE.MaxEncumbrance": "Sobrecargado",
+
     "AQE.CostMO": "reinas/mpl",
     "AQE.CostMP": "nobles/mo",
     "AQE.CostMC": "comunes/mc",
-    "AQE.Encumbrance": "Carga",
-    "AQE.MaxEncumbrance": "Sobrecargado",
+    "AQE.CostLB": "libras/pr",
+    "AQE.CostPN": "peniques/pn",
+    "AQE.CostCH": "chelines/pc",
 
     "AQE.AddItem": "Nuevo",
     "AQE.DelItem": "Borrar",
     "AQE.ModItem": "Editar",
-    "AQE.Rolling": "Tirada de",
-    "AQE.INSDialog": "Tirada de Instintos",
-    "AQE.InsRollDetails": "Selecciona el atributo relevante para esta tirada"
+    "AQE.Rolling": "Tirada de"
 
 }

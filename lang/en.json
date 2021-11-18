@@ -1,6 +1,8 @@
 {
     "AQE.Setting.Version": "Version",
     "AQE.Setting.VersionHint": "Do not modify. It is used internally by the upgrade process",
+    "AQE.Setting.Flavor": "Eirendor Hack",
+    "AQE.Setting.FlavorHint": "Eirendor is a system with a couple of hacks or flavors with small differences",
 
     "AQE.Name": "Name",
     "AQE.Type": "Type",
@@ -106,16 +108,18 @@
     "AQE.Weight": "Weight",
     "AQE.Capacity": "Capacity",
     "AQE.Cost": "Cost",
-    "AQE.CostMO": "reinas/ptp",
-    "AQE.CostMP": "nobles/gp",
-    "AQE.CostMC": "comunes/cp",
     "AQE.Encumbrance": "Encumbrance",
     "AQE.MaxEncumbrance": "Max Encumb.",
+
+    "AQE.CostMO": "reinas/plp",
+    "AQE.CostMP": "nobles/gp",
+    "AQE.CostMC": "comunes/cp",
+    "AQE.CostLB": "libras/pr",
+    "AQE.CostPN": "peniques/pn",
+    "AQE.CostCH": "chelines/pc",
 
     "AQE.AddItem": "New",
     "AQE.DelItem": "Delete",
     "AQE.ModItem": "Edit",
-    "AQE.Rolling": "Rolling",
-    "AQE.INSDialog": "Rolling Instints",
-    "AQE.InsRollDetails": "Select relevant attribute"
+    "AQE.Rolling": "Rolling"
 }

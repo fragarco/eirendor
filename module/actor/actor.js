@@ -37,14 +37,28 @@ export class AQEActor extends Actor {
   }
 
   /**
+   * Leyendas de Arkham coin labels
+   */
+  _applyArkhamHackCoins(data) {
+    data.money.gplabel = "AQE.CostLB";
+    data.money.splabel = "AQE.CostPN";
+    data.money.cplabel = "AQE.CostCH";
+  }
+  
+  /**
    * 
    * Apply configured hack differences in case we want to add
    * different labes for Pulp, Leyendas de Arkham, etc., hacks
    */
   _applySelectedHack(actorData) {
     const data = actorData.data;
+    const hack = game.settings.get("eirendor", "flavor");
     data.traits.mp.label = "AQE.MP";
-    this._applyDefaultHackCoins(data);
+    if (hack === "arkham") {
+      this._applyArkhamHackCoins(data);
+    } else {
+      this._applyDefaultHackCoins(data);
+    }
   }
 
   /**

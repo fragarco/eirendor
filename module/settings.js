@@ -8,4 +8,18 @@ export const registerSettings = function () {
     default: 0,
     type: Number,
   });
+
+  game.settings.register("eirendor", "flavor", {
+    name: game.i18n.localize("AQE.Setting.Flavor"),
+    hint: game.i18n.localize("AQE.Setting.FlavorHint"),
+    default: "aqe",
+    scope: "world",
+    type: String,
+    config: true,
+    choices: {
+      aqe: "El Albor de la Quinta Edad",
+      arkham: "Leyendas de Arkham"
+    },
+    onChange: _ => window.location.reload()
+  });
 };
