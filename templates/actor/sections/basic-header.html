@@ -50,6 +50,12 @@
     <ul class="traits flexrow">
         <li>
             <div class="flexrow">
+                <input type="text" name="data.traits.hd.value" value="{{data.traits.hd.value}}" data-dtype="String"/>
+            </div>
+            <h4 class="rollable" data-roll="{{data.traits.hd.value}}" data-comp="{{false}}" data-label="{{localize 'AQE.HD'}}">{{localize "AQE.HD"}}</h4>
+        </li>
+        <li>
+            <div class="flexrow">
                 <input type="text" name="data.traits.hp.value" value="{{data.traits.hp.value}}" data-dtype="Number"/>
                 <span class=>|</span>
                 <input type="text" name="data.traits.hp.max" value="{{data.traits.hp.max}}" data-dtype="Number"/>
@@ -64,6 +70,7 @@
             </div>
             <h4>{{localize data.traits.mp.label}}</h4>
         </li>
+        {{#unless data.isNPC}}
         <li>
             <div class="flexrow">
                 <input type="text" name="data.traits.pe.value" value="{{data.traits.pe.value}}" data-dtype="Number"/>
@@ -78,6 +85,7 @@
             </div>
             <h4>{{localize "AQE.BC"}}</h4>
         </li>
+        {{/unless}}
         <li>
             <div class="flexrow">
                 <input type="text" name="data.traits.ca.value" value="{{data.traits.ca.value}}" data-dtype="Number"/>

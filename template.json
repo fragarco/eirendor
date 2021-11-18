@@ -134,6 +134,9 @@
             "value": 0,
             "max": 0
           },
+          "hd": {
+            "value": "1d8"
+          },
           "hp": {
             "value": 0,
             "max": 0
@@ -249,7 +252,8 @@
         "base-money",
         "base-bio",
         "base-filters"
-      ]
+      ],
+      "isNPC": false
     },
     "non-player": {
       "templates": [
@@ -258,7 +262,8 @@
         "base-saves",
         "base-traits",
         "base-money"
-      ]
+      ],
+      "isNPC": true
     }
   },
   "Item": {

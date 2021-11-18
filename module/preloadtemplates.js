@@ -11,7 +11,8 @@ export const preloadHandlebarsTemplates = async function () {
         'systems/eirendor/templates/actor/sections/basic-gear.html',
         'systems/eirendor/templates/actor/sections/basic-spells.html',
         'systems/eirendor/templates/actor/sections/basic-bio.html',
-        'systems/eirendor/templates/actor/sections/npc-skills.html'
+        'systems/eirendor/templates/actor/sections/npc-skills.html',
+        'systems/eirendor/templates/actor/sections/npc-combat.html',
     ];
     return loadTemplates(templatePaths);
 };

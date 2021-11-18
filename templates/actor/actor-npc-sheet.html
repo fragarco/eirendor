@@ -4,11 +4,12 @@
     <header class="sheet-header flexrow">
         {{> "systems/eirendor/templates/actor/sections/basic-header.html"}}
     </header>
-    <!--
+
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="stats">{{localize "AQE.Stats"}}</a>
-        <a class="item" data-tab="spells">{{localize "AQE.Spells"}}/{{localize "AQE.Powers"}}/{{localize "AQE.Marvels"}}</a>
+        <a class="item" data-tab="combat">{{localize "AQE.Combat"}}</a>
+        <a class="item" data-tab="spells">{{localize "AQE.Spells"}}</a>
         <a class="item" data-tab="notes">{{localize "AQE.Notes"}}</a>
     </nav>
 
@@ -16,6 +17,9 @@
     <section class="sheet-body">
         <div class="tab stats" data-group="primary" data-tab="stats">
             {{> "systems/eirendor/templates/actor/sections/npc-skills.html"}}
+        </div>
+        <div class="tab combat" data-group="primary" data-tab="combat">
+            {{> "systems/eirendor/templates/actor/sections/npc-combat.html"}}
         </div>
         <div class="tab spells" data-group="primary" data-tab="spells">
             {{> "systems/eirendor/templates/actor/sections/basic-spells.html"}}
@@ -26,6 +30,5 @@
             </div>
         </div>
     </section>
-    -->
 </form>
 

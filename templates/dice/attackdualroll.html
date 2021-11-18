@@ -6,13 +6,25 @@
           <div class="dice-formula">{{roll1.result}} | {{roll2.result}}</div>
         </section>
       </div>
-      <h4 class="dice-total">{{roll1.total}}  |  {{roll2.total}}</h4>
-      <div class="dice-formula">{{localize "AQE.Damage"}}: {{damage.formula}}</div>
+      <h4 class="dice-total">
+        [
+        <span title="{{roll1.result}}" style="{{aqe_colorRoll roll1.result}}">{{roll1.total}}</span>
+        ][
+        <span title="{{roll2.result}}" style="{{aqe_colorRoll roll2.result}}">{{roll2.total}}</span>
+        ]
+      </h4>
+      <div class="dice-formula">{{localize "AQE.Damage"}}: {{damage.formula}} | Crit: {{critical.formula}}</div>
       <div class="dice-tooltip">
         <section class="tooltip-part">
-          <div class="dice-formula">{{damage.result}}</div>
+          <div class="dice-formula">{{damage.result}} | {{critical.result}}</div>
         </section>
       </div>
-      <h4 class="dice-total">{{aqe_max 1 damage.total}}</h4>
+      <h4 title="{{damage.result}}" class="dice-total">
+        [
+        <span title="{{damage.result}}">{{aqe_max 1 damage.total}}</span>
+        ][
+        <span title="{{critical.result}}">{{aqe_max 1 critical.total}}</span>
+        ]
+      </h4>
     </div>
 </div>

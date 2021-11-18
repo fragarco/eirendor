@@ -282,7 +282,18 @@ export class AQEActorSheet extends ActorSheet {
       await roll1.evaluate({async: true});
       await roll2.evaluate({async: true});
       await damage.evaluate({async: true});
-      renderTemplate("systems/eirendor/templates/dice/attackdualroll.html",{roll1, roll2, damage})
+      
+      // in damage formulas dice should be first item
+      const diceterm = damage.terms[0];
+      let critformula = damage.total;
+      if ('faces' in damage.terms[0]) {
+        // critical hits reroll damage dice and add it to the result but does not apply twice
+        // all other modifiers or extra damage dices (fire, posion, etc.)
+        critformula = diceterm.number + "d" + diceterm.faces + " + " + damage.total; 
+      }
+      const critical = new Roll(critformula);
+      await critical.evaluate({async: true});
+      renderTemplate("systems/eirendor/templates/dice/attackdualroll.html",{roll1, roll2, damage, critical})
       .then(
         (msg) => {
           ChatMessage.create({

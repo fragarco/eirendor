@@ -60,6 +60,19 @@ Hooks.once('init', async function() {
     return Math.max(num1, num2);
   });
 
+  Handlebars.registerHelper('aqe_colorRoll', function(rollstr) {
+    const dice = rollstr.slice(0,2).trim();
+    let style = "";
+    if (dice === "20") {
+      style = "color: green;";
+    } else if (dice === "19") {
+      style = "color: blue;";
+    } else if (dice === "1") {
+      style = "color: red;";
+    }
+    return style;
+  });
+
   await preloadHandlebarsTemplates();
 });
 

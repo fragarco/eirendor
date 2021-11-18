@@ -87,8 +87,13 @@ export class AQEActor extends Actor {
     if (nivel > 10) {
       nivel = 10;
     }
-    data.traits.bc.value = Math.floor((nivel+1)/2) + 1;
-    data.traits.pe.max = Math.floor(nivel/2) + 1 + data.attributes.con.mod;
+    if (data.isNPC){
+      data.traits.bc.value = 2;
+      data.traits.pe.max = 0;
+    } else {
+      data.traits.bc.value = Math.floor((nivel+1)/2) + 1;
+      data.traits.pe.max = Math.floor(nivel/2) + 1 + data.attributes.con.mod;
+    }
   }
 
   /**
@@ -102,8 +107,13 @@ export class AQEActor extends Actor {
       let base = item.data.addmod;
       if (item.data.proficient) base = base + data.traits.bc.value;
       if (item.type === 'weapon') {
-        item.data.attackmod = base + data.attributes[item.data.weapontype].mod;
-        item.data.dmgmod = data.attributes[item.data.dmgtype].mod;
+        if (data.isNPC) {
+          item.data.attackmod = data.header.level.value + 2;
+          item.data.dmgmod = 0;
+        } else {
+          item.data.attackmod = base + data.attributes[item.data.weapontype].mod;
+          item.data.dmgmod = data.attributes[item.data.dmgtype].mod;
+        }
       }
     }
   }
@@ -114,7 +124,10 @@ export class AQEActor extends Actor {
    */
   _prepareSpellsData(actorData) {
     const data = actorData.data;
-    const bonus = data.attributes[data.traits.mp.char].mod + data.traits.bc.value;
+    let bonus = data.attributes[data.traits.mp.char].mod + data.traits.bc.value;
+    if (data.isNPC) {
+      bonus = data.header.level.value + 2;
+    }
     data.traits.mp.atkmod = bonus;
     data.traits.mp.CD = 8 + bonus;
   }
@@ -135,5 +148,6 @@ export class AQEActor extends Actor {
     _prepareNonCharacterData(actorData) {
       this._prepareAttributesData(actorData);
       this._prepareAttackData(actorData);
+      this._prepareSpellsData(actorData);
     }
 }
