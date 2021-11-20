@@ -1,0 +1,20 @@
+{
+    "name": "{{name}}",
+    "type": "weapon",
+    "data": {
+        "tags": "{{tags}}",
+        "number":1,
+        "description": "{{description}}",
+        "unitweight": {{peso}},
+        "weight": 1,
+        "capacity": 0,
+        "stored": false,
+        "proficient": false,
+        "weapontype": "{{atype}}",
+        "dmgtype": "{{dtype}}",
+        "attackmod": 0,
+        "dmgmod": 0,
+        "addmod": 0,
+        "damage":"{{damage}}"
+    }
+}
