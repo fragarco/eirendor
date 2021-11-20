@@ -1,0 +1,9 @@
+{
+    "name": "{{name}}",
+    "type": "background",
+    "data": {
+        "tags": "{{tags}}",
+        "description": "{{description}}"
+    }
+}
+

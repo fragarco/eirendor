@@ -1,0 +1,16 @@
+{
+    "name":"{{name}}",
+    "type":"armor",
+    "data": {
+        "tags":"{{tags}}",
+        "number": 1,
+        "description":"{{description}}",
+        "unitweight": {{peso}},
+        "weight": 1,
+        "capacity": 0,
+        "stored": false,
+        "ca": {{ca}}
+    }
+}
+
+
