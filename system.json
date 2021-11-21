@@ -19,7 +19,50 @@
     "css/items.css"
   ],
   "scripts": [],
-  "packs": [],
+  "packs": [
+    {
+      "name": "aqe-talentos-clases",
+      "label": "Talentos de Clase (AQE)",
+      "system": "eirendor",
+      "path": "./packs/aqe-talentos-clases.db",
+      "entity": "Item"
+    },
+    {
+      "name": "aqe-talentos-razas",
+      "label": "Talentos de Raza (AQE)",
+      "system": "eirendor",
+      "path": "./packs/aqe-talentos-razas.db",
+      "entity": "Item"
+    },
+    {
+      "name": "trasfondos-profesiones",
+      "label": "Trasfondos (Profesiones)",
+      "system": "eirendor",
+      "path": "./packs/trasfondos-prodesiones.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipo-armaduras",
+      "label": "Equipo (Armaduras)",
+      "system": "eirendor",
+      "path": "./packs/equipo-armaduras.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipo-armas",
+      "label": "Equipo (Armas)",
+      "system": "eirendor",
+      "path": "./packs/equipo-armas.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipo-pertrechos",
+      "label": "Equipo (Pertrechos)",
+      "system": "eirendor",
+      "path": "./packs/equipo-pertrechos.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "es",
