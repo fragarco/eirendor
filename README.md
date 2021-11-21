@@ -18,6 +18,10 @@ https://github.com/fragarco/eirendor/blob/main/system.json
 
 If you wish to manually install the system, you must clone or extract it into the "Data/systems/eirendor" folder.
 
+## INSTRUCTIONS
+
+As this game was only published in Spanish, I will be surprised if it gets played in English. As a result, the Spanish documentation (see LEEME.md) contains the instructions and it's kept up to date while this document is more for those people that wants to know what this is about but doesn't understand Spanish.
+
 ## LICENSE
 
 All of the code (HTML/CSS/JavaScript) in this repository is released under the GPLv3 license (see LICENSE file for details).
