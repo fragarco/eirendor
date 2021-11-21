@@ -4,3 +4,6 @@
 # Node Modules
 node_modules/
 npm-debug.log
+
+# Special files
+.DS_Store

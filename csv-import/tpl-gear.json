@@ -1,0 +1,16 @@
+{
+    "name": "{{name}}",
+    "type": "gear",
+    "data": {
+        "tags": "{{tags}}",
+        "number": {{number}},
+        "description": "{{description}}",
+        "unitweight": {{peso}},
+        "weight": 1,
+        "capacity": {{capacity}},
+        "stored": false
+    }
+}
+
+
+
