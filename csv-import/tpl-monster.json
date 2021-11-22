@@ -1,0 +1,184 @@
+{
+    "name":"{{name}}",
+    "type":"non-player",
+    "data": {
+        "header": {
+            "race": {
+                "value":""
+            },
+            "class": {
+                "value":""
+            },
+            "level": {
+                "value": {{nivel}},
+                "min":0,
+                "max":20
+            },
+            "xp": {
+                "value":0,
+                "min":0,
+                "max":200
+            },
+            "tags": {
+                "value":"{{tags}}"
+            },
+            "langs": {
+                "value":""
+            }
+        },
+        "attributes": {
+            "str": {
+                "value":{{FUE}},
+                "mod":0,
+                "proficient": false,
+                "readonly":false,
+                "label": "AQE.str"
+            },
+            "dex": {
+                "value":{{DES}},
+                "mod":0,
+                "proficient":false,
+                "readonly":false,
+                "label":"AQE.dex"
+            },
+            "con":{
+                "value":{{CON}},
+                "mod":0,
+                "proficient":false,
+                "readonly":false,
+                "label":"AQE.con"
+            },
+            "int":{
+                "value":{{INT}},
+                "mod":0,
+                "proficient":false,
+                "readonly":false,
+                "label":"AQE.int"
+            },
+            "wis":{
+                "value":{{SAB}},
+                "mod":0,
+                "proficient":false,
+                "readonly":false,
+                "label":"AQE.wis"
+            },
+            "cha":{
+                "value":{{CAR}},
+                "mod":0,
+                "proficient":false,
+                "readonly":false,
+                "label":"AQE.cha"
+            },
+            "san":{
+                "value":10,
+                "mod":0,
+                "proficient":false,
+                "readonly":true,
+                "label":"AQE.san"
+            }
+        },
+        "saves":{
+            "fortitude":{
+                "value":{{FOR}},
+                "proficient":false,
+                "label":"AQE.Fortitude"
+            },
+            "reflex":{
+                "value":{{REF}},
+                "proficient":false,
+                "label":"AQE.Reflex"
+            },
+            "will":{
+                "value":{{VOL}},
+                "proficient":false,
+                "label":"AQE.Will"
+            }
+        },
+        "traits":{
+            "bc":{
+                "value":2
+            },
+            "mov": {
+                "value":12
+            },
+            "ca":{
+                "value":{{ca}}
+            },
+            "ini":{
+                "value":0
+            },
+            "pe":{
+                "value":0,
+                "max":0
+            },
+            "hd":{
+                "value":"{{hd}}"
+            },
+            "hp":{
+                "value":{{pg}},
+                "max":{{pg}}
+            },
+            "mp":{
+                "value":0,
+                "max":0,
+                "char":"int",
+                "atkmod":0,
+                "CD":8
+            },
+            "runes":{
+                "level0":{
+                    "value":0,
+                    "label":"AQE.Level0"
+                },
+                "level1":{
+                    "value":0,
+                    "label":"AQE.Level1"
+                },
+                "level2":{
+                    "value":0,
+                    "label":"AQE.Level2"
+                },"level3":{
+                    "value":0,
+                    "label":"AQE.Level3"
+                },
+                "level4":{
+                    "value":0,
+                    "label":"AQE.Level4"
+                },
+                "level5":{
+                    "value":0,
+                    "label":"AQE.Level5"
+                },
+                "level6":{
+                    "value":0,
+                    "label":"AQE.Level6"
+                },
+                "level7":{
+                    "value":0,
+                    "label":"AQE.Level7"
+                },
+                "level8":{
+                    "value":0,
+                    "label":"AQE.Level8"
+                },
+                "level9":{
+                    "value":0,
+                    "label":"AQE.Level9"
+                }
+            }
+        },
+        "money":{
+            "gp":0,
+            "gplabel":"AQE.CostMO",
+            "sp":0,
+            "splabel":"AQE.CostMP",
+            "cp":0,
+            "cplabel":"AQE.CostMC"
+        },
+        "story": "{{description}}",
+        "isNPC":true
+    }
+}
+
+
+

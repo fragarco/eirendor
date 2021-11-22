@@ -1,0 +1,36 @@
+"name","tags","nivel","ca","pg","hd","FUE","DES","CON","INT","SAB","CAR","FOR","REF","VOL","description"
+"Abolez","[Aberración][Grande][Caótico]",9,17,126,"18d10+18",21,10,15,18,15,18,6,4,6,"Movimiento 4m, nadar 16m. Iniciativa +0.
+<br>Anfibio. Puede respirar bajo el agua y en la superficie.
+<br>Nube mucosa. Cuando está bajo el agua emite una nube amarillenta de
+mucosa en un radio de 2 metros. Esta nube provoca una enfermedad a
+quien no supere una salvación de Fortaleza CD 17 que dura 1d4 horas y que
+obliga a sus víctimas a respirar solo dentro del agua.
+<br>Sondeo telepático. Si se comunica telepáticamente con una criatura visible, descubre sus mayores deseos.
+<br>Telepatía 48m.
+<br>Visión en la oscuridad 48m.
+<br><b>ACCIONES</b>
+<br>Multiataque. Tentáculo (3).
+<br>Esclavizar. Puede esclavizar a
+una criatura visible a un máximo
+de 12 metros que no supere una
+salvación de Voluntad CD 17. La
+criatura obtiene la clave [Esclavizado]
+hasta que el abolez muera o cambie de
+mundo. Una criatura bajo esta clave no
+puede utilizar reacciones y puede recibir
+comunicación telepática del abolez allí
+donde se encuentre. La víctima puede
+repetir la salvación para finalizar el efecto una vez cada 24 horas, siempre y
+cuando se encuentre a más de 1 km del abolez.
+<br>Tentáculo. +11, 4m, 11(2d6+5) contundente[G]. El objetivo debe superar
+una salvación de Fortaleza CD 17 o queda enfermo. Durante el primer
+minuto la enfermedad no tiene efecto y puede eliminarse de forma mágica.
+Pasado este minuto, la piel del objetivo se vuelve translúcida y pegajosa,
+no puede recuperar PG a no ser que esté bajo el agua y recibe 6(1d12) ácido[A] cada diez minutos que pase con la piel seca. Una vez la enfermedad
+tenga efecto solo puede eliminarse con un conjuro o efecto de [Rango 6]
+o superior.
+<br><b>ACCIONES</b> LEGENDARIAS
+<br>Coletazo. +11, 4m, 14(3d6+5) contundente[G].
+<br>Drenaje Psíquico. Puede causar 9(3d6) psíquico[S] a una criatura que haya
+[Esclavizado]. Además, recupera tantos PG como daño haya causado.
+"

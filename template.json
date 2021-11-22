@@ -261,7 +261,8 @@
         "base-attributes",
         "base-saves",
         "base-traits",
-        "base-money"
+        "base-money",
+        "base-bio"
       ],
       "isNPC": true
     }
