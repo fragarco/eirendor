@@ -61,6 +61,13 @@
       "system": "eirendor",
       "path": "./packs/equipo-pertrechos.db",
       "entity": "Item"
+    },
+    {
+      "name": "conjuros",
+      "label": "Conjuros",
+      "system": "eirendor",
+      "path": "./packs/conjuros.db",
+      "entity": "Item"
     }
   ],
   "languages": [

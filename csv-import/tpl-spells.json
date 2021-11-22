@@ -1,0 +1,12 @@
+{
+    "name": "{{name}}",
+    "type": "spell",
+    "img": "systems/eirendor/assets/icons/spells/{{icono}}",
+    "data": {
+        "range": {{range}},
+        "tags": "{{tags}}",
+        "summary": "",
+        "description": "{{description}}",
+        "runes": 0
+    }
+}
