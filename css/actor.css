@@ -276,8 +276,14 @@
     text-align: center;
 }
 
-.eirendor.sheet .bio div.textinfo {
-    height: 320px;
+.eirendor.sheet .bio div.pjtextinfo {
+    height: 280px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.eirendor.sheet .bio div.pnjtextinfo {
+    height: 310px;
     border: 1px solid black;
     border-radius: 4px;
 }
