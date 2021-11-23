@@ -140,7 +140,7 @@ export class AQEActor extends Actor {
     const data = actorData.data;
     let bonus = data.attributes[data.traits.mp.char].mod + data.traits.bc.value;
     if (data.isNPC) {
-      bonus = data.header.level.value + 2;
+      bonus = data.header.level.value + data.attributes[data.traits.mp.char].mod;
     }
     data.traits.mp.atkmod = bonus;
     data.traits.mp.CD = 8 + bonus;
