@@ -176,8 +176,70 @@
             "cplabel":"AQE.CostMC"
         },
         "story": "{{description}}",
-        "isNPC":true
-    }
+        "isNPC": true
+    },
+    "items": [
+        {
+            "name":"Ataque1",
+            "type":"weapon",
+            "data":{
+                "tags":"[Daño X]",
+                "number":1,
+                "description":"",
+                "unitweight":1,
+                "weight":1,
+                "capacity":0,
+                "stored":false,
+                "proficient":false,
+                "weapontype":"oth",
+                "dmgtype":"oth",
+                "attackmod":0,
+                "dmgmod":0,
+                "addmod":0,
+                "damage":"1d4"
+            }
+        },
+        {
+            "name":"Ataque2",
+            "type":"weapon",
+            "data":{
+                "tags":"[Daño X]",
+                "number":1,
+                "description":"",
+                "unitweight":1,
+                "weight":1,
+                "capacity":0,
+                "stored":false,
+                "proficient":false,
+                "weapontype":"oth",
+                "dmgtype":"oth",
+                "attackmod":0,
+                "dmgmod":0,
+                "addmod":0,
+                "damage":"1d4"
+            }
+        },
+        {
+            "name":"Ataque3",
+            "type":"weapon",
+            "data":{
+                "tags":"[Daño X]",
+                "number":1,
+                "description":"",
+                "unitweight":1,
+                "weight":1,
+                "capacity":0,
+                "stored":false,
+                "proficient":false,
+                "weapontype":"oth",
+                "dmgtype":"oth",
+                "attackmod":0,
+                "dmgmod":0,
+                "addmod":0,
+                "damage":"1d4"
+            }
+        }
+    ]
 }
 
 
