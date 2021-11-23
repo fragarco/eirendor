@@ -38,10 +38,8 @@
 .eirendor.sheet .sheet-header ul.level-box {
     list-style: none;
     max-width: 8em;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 20px; 
+    margin: 20px 0 0 0;
+    padding: 0; 
   }
 
 .eirendor.sheet .sheet-header ul.level-box input,
