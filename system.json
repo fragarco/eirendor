@@ -68,6 +68,13 @@
       "system": "eirendor",
       "path": "./packs/conjuros.db",
       "entity": "Item"
+    },
+    {
+      "name": "monstruos-l2",
+      "label": "Monstruos (L2)",
+      "system": "eirendor",
+      "path": "./packs/monstruos-l2.db",
+      "entity": "Actor"
     }
   ],
   "languages": [
