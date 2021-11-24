@@ -15,11 +15,11 @@
                 <a class="rollable" data-roll="1d20 + {{data.traits.mp.atkmod}}" data-comp="{{false}}" data-label="{{localize 'AQE.Spells'}}"><i class="fas fa-dice-d20"></i></a>
             </li>
             <li>
-                <input type="text" name="data.traits.mp.atkmod" value="{{numberFormat data.traits.mp.atkmod decimals=0 sign=true}}" data-dtype="Number" readonly/>
+                <input type="text" name="data.traits.mp.atkmod" value="{{numberFormat data.traits.mp.atkmod decimals=0 sign=true}}" data-dtype="Number" {{#unless data.isNPC}}readonly{{/unless}}/>
                 <label class="velabel">{{localize "AQE.SpellsAtackMod"}}</label>
             </li>
             <li>
-                <input name="data.traits.mp.CD" type="text" value="{{data.traits.mp.CD}}" data-dtype="Number" readonly/>
+                <input name="data.traits.mp.CD" type="text" value="{{data.traits.mp.CD}}" data-dtype="Number" {{#unless data.isNPC}}readonly{{/unless}}/>
                 <label class="velabel">{{localize "AQE.SpellsCD"}}</label>
             </li>
         </ul>

@@ -138,10 +138,7 @@ export class AQEActor extends Actor {
    */
   _prepareSpellsData(actorData) {
     const data = actorData.data;
-    let bonus = data.attributes[data.traits.mp.char].mod + data.traits.bc.value;
-    if (data.isNPC) {
-      bonus = data.header.level.value + data.attributes[data.traits.mp.char].mod;
-    }
+    const bonus = data.attributes[data.traits.mp.char].mod + data.traits.bc.value;
     data.traits.mp.atkmod = bonus;
     data.traits.mp.CD = 8 + bonus;
   }
@@ -162,6 +159,5 @@ export class AQEActor extends Actor {
     _prepareNonCharacterData(actorData) {
       this._prepareAttributesData(actorData);
       this._prepareAttackData(actorData);
-      this._prepareSpellsData(actorData);
     }
 }
