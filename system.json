@@ -2,7 +2,7 @@
   "name": "eirendor",
   "title": "Eirendor: El Albor de la Quinta Edad",
   "description": "Eirendor 1st edition system for Foundry VTT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.9",
   "templateVersion": 2,
