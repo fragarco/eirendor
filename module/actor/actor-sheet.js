@@ -234,11 +234,17 @@ export class AQEActorSheet extends ActorSheet {
 
       await roll1.evaluate({async: true});
       await roll2.evaluate({async: true});
+      // Prepare rolls in case Dice So Nice! is being used
+      const rolls = [roll1,roll2]; //array of Roll
+      const pool = PoolTerm.fromRolls(rolls);
+      const dsnroll = Roll.fromTerms([pool]);
       renderTemplate("systems/eirendor/templates/dice/simpledualroll.html",{roll1, roll2})
       .then(
         (msg) => {
           ChatMessage.create({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            roll: dsnroll,
             flavor: label,
             content: msg,
           });
@@ -293,10 +299,16 @@ export class AQEActorSheet extends ActorSheet {
       }
       const critical = new Roll(critformula);
       await critical.evaluate({async: true});
+      // Prepare rolls in case Dice So Nice! is being used
+      const rolls = [roll1,roll2]; //array of Roll
+      const pool = PoolTerm.fromRolls(rolls);
+      const dsnroll = Roll.fromTerms([pool]);
       renderTemplate("systems/eirendor/templates/dice/attackdualroll.html",{roll1, roll2, damage, critical})
       .then(
         (msg) => {
           ChatMessage.create({
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            roll: dsnroll,
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: label,
             content: msg,
