@@ -73,6 +73,19 @@ Hooks.once('init', async function() {
     return style;
   });
 
+  Handlebars.registerHelper('aqe_stripHTML', function(param) {
+    var regex = /(<([^>]+)>)/ig
+    param = param.replace(regex, "");
+    param = param.replaceAll("&aacute;", "á");
+    param = param.replaceAll("&eacute;", "é");
+    param = param.replaceAll("&iacute;", "í");
+    param = param.replaceAll("&oacute;", "ó");
+    param = param.replaceAll("&uacute;", "ú");
+    param = param.replaceAll("&ntilde;", "ñ");
+    param = param.replaceAll("&nbsp;", " ");
+    return param;
+  });
+
   await preloadHandlebarsTemplates();
 });
 

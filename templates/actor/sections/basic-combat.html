@@ -24,7 +24,7 @@
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span class="attackroll gear-name" data-damage="{{item.data.damage}} + {{item.data.dmgmod}}" data-roll="1d20 + {{item.data.attackmod}}" data-label="{{item.name}}">{{item.name}}</span>
+                <span title="{{aqe_stripHTML item.data.description}}" class="attackroll gear-name" data-damage="{{item.data.damage}} + {{item.data.dmgmod}}" data-roll="1d20 + {{item.data.attackmod}}" data-label="{{item.name}}">{{item.name}}</span>
             </td>
             <td class="gear-values">
                 <div class="item-controls">
@@ -71,7 +71,7 @@
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span class="gear-name">{{item.name}}</span>
+                <span title="{{aqe_stripHTML item.data.description}}" class="gear-name">{{item.name}}</span>
             </td>
             <td class="gear-values">{{numberFormat item.data.ca decimals=0 sign=true}}</td>
             <td class="gear-values">{{item.data.tags}}</td>
