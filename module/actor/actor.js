@@ -75,10 +75,12 @@ export class AQEActor extends Actor {
 
     // encumbrance due to carried items
     for (let i of actorData.items) {
-      const item = i.data;
-      if (!item.data.stored) {
-        const weight = item.data.unitweight * item.data.number;
-        encumbrance = encumbrance + weight;
+      if (i.type === "gear" || i.type === "weapon" || i.type === "armor") {
+        const item = i.data;
+        if (!item.data.stored) {
+          const weight = item.data.unitweight * item.data.number;
+          encumbrance = encumbrance + weight;
+        }
       }
     }
     data.encumbrance.current = encumbrance;
