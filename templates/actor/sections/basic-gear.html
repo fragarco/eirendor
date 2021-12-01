@@ -22,7 +22,7 @@
     <div style="text-align: center;">
         <ul class="weight-box flexrow">
             <li>
-                <input name="data.encumbrance.current" type="text" value="{{data.encumbrance.current}}" data-dtype="Number" readonly/>
+                <input name="data.encumbrance.current" type="text" value="{{numberFormat data.encumbrance.current decimals=2 sign=false}}" data-dtype="Number" readonly/>
                 <label class="velabel">{{localize "AQE.Encumbrance"}}</label>
             </li>
             <li>
