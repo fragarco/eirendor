@@ -125,8 +125,14 @@ export class AQEActor extends Actor {
           item.data.attackmod = data.header.level.value + 2;
           item.data.dmgmod = 0;
         } else {
-          item.data.attackmod = base + data.attributes[item.data.weapontype].mod;
-          item.data.dmgmod = data.attributes[item.data.dmgtype].mod;
+          item.data.attackmod = base;
+          if (item.data.weapontype !== "oth") {
+            item.data.attackmod = base + data.attributes[item.data.weapontype].mod;
+          }
+          item.data.dmgmod = 0;
+          if (item.data.dmgtype !== "oth") {
+            item.data.dmgmod = data.attributes[item.data.dmgtype].mod;
+          }
         }
       }
     }
