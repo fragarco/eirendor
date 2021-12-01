@@ -113,14 +113,14 @@ async function createAQEMacro(data, slot) {
 
   // Create the macro command
   const command = `game.eirendor.rollItemMacro("${item.name}");`;
-  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  let macro = game.macros.contents.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
       type: "script",
       img: item.img,
       command: command,
-      flags: { "AQE.itemMacro": true }
+      flags: { "eirendor.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

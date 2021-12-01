@@ -176,6 +176,17 @@ export class AQEActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // Drag events for macros.
+    if (this.actor.isOwner) {
+      let handler = ev => this._onDragStart(ev);
+      // Find all items on the character sheet.
+      html.find('tr.item').each((i, tr) => {
+        // Add draggable attribute and dragstart listener.
+        tr.setAttribute("draggable", true);
+        tr.addEventListener("dragstart", handler, false);
+      });
+    }
   }
 
   /**
