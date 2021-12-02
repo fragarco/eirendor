@@ -2,7 +2,7 @@
   "name": "eirendor",
   "title": "Eirendor: El Albor de la Quinta Edad",
   "description": "Eirendor 1st edition system for Foundry VTT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.9",
   "templateVersion": 2,
@@ -81,6 +81,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/fragarco/eirendor",
   "manifest": "https://raw.githubusercontent.com/fragarco/eirendor/main/system.json",
-  "download": "https://github.com/fragarco/eirendor/archive/refs/tags/v1.0.3.zip",
+  "download": "https://github.com/fragarco/eirendor/archive/refs/tags/v1.0.4.zip",
   "license": "LICENSE"
 }
