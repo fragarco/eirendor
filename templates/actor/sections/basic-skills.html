@@ -49,7 +49,7 @@
         </h3>
         <ol>
             {{#each talents as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
+                <li class="item flexrow" style="margin: 0;" data-item-id="{{item._id}}">
                     <div class="flex0"><img src="{{item.img}}" title="{{item.name}}"/></div>
                     <h4 title="{{aqe_stripHTML item.data.description}}" class="flex1">{{item.name}}</h4>
                     <div class="item-controls talent-buttons">

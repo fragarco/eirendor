@@ -1,12 +1,12 @@
 
 .eirendor.sheet.actor {
-    min-width: 750px;
-    min-height: 600px;
+    min-width: 785px;
+    min-height: 650px;
 }
 
 .eirendor.sheet .avatar img {
-    flex: 0 0 160px;
-    max-width: 160px;
+    flex: 0 0 195px;
+    max-width: 195px;
     height: 195px;
 }
 
@@ -130,6 +130,11 @@
     font-weight: bold;
 }
 
+.eirendor.sheet .skills li,
+.eirendor.sheet .attributes li{
+    margin: 10px 0 0 0;
+}
+
 .eirendor.sheet .attributes label{
     text-align: center;
     margin: 4px 0 0 0;
@@ -174,10 +179,10 @@
 
 .eirendor.sheet .backgrounds img,
 .eirendor.sheet .talents img {
-    flex: 0 0 24px;
-    max-width: 24px;
-    height: 24px;
-    margin: 5px;
+    flex: 0;
+    max-width: 32px;
+    height: 32px;
+    margin-right: 8px;
 }
 
 .eirendor.sheet .backgrounds h4,

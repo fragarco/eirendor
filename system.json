@@ -28,6 +28,13 @@
       "entity": "Item"
     },
     {
+      "name": "arkham-talentos",
+      "label": "Talentos (Arkham)",
+      "system": "eirendor",
+      "path": "./packs/arkham-talentos.db",
+      "entity": "Item"
+    },
+    {
       "name": "trasfondos-profesiones",
       "label": "Trasfondos (Profesiones)",
       "system": "eirendor",

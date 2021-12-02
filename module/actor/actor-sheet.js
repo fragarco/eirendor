@@ -8,8 +8,8 @@ export class AQEActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["eirendor", "sheet", "actor"],
-      width: 750,
-      height: 600,
+      width: 785,
+      height: 650,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }]
     });
   }
@@ -96,10 +96,13 @@ export class AQEActorSheet extends ActorSheet {
           break;
         case 'talent': talents.push(i); break;
         case 'spell':
-          if (actorData.data.filters.spells == "ALL" ||
-              actorData.data.filters.spells == ("level" + item.range)) {
+          // Los trucos siempre estan preparados
+          if (item.range === 0) item.runes = 1;
+          // Filtrado de conjuros
+          if (actorData.data.filters.spells === "ALL" ||
+              actorData.data.filters.spells === ("level" + item.range) ||
+              (actorData.data.filters.spells === "READY" && item.runes > 0)) {
             spells[item.range].push(i);
-            if (item.range === 0) item.runes = 1;
           }
           break;
         case 'background': backgrounds.push(i); break;

@@ -28,6 +28,7 @@
         <select class="flexrow spells-filter" name="data.filters.spells">
             {{#select data.filters.spells}}
             <option value="ALL">{{localize "AQE.ViewAll"}}</option>
+            <option value="READY">{{localize "AQE.ViewReady"}}</option>
             {{#each data.traits.runes as |rune key|}}
             <option value="{{key}}">{{localize rune.label}}</option>
             {{/each}}
