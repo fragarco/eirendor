@@ -170,15 +170,6 @@ export class AQEActorSheet extends ActorSheet {
     // Rollable abilities.
     html.find('.rollable').click(this._onSimpleDualRoll.bind(this));
     html.find('.attackroll').click(this._onAttackRoll.bind(this));
-    // Drag events for macros.
-    if (this.actor.isOwner) {
-      let handler = ev => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
-        if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
-      });
-    }
 
     // Drag events for macros.
     if (this.actor.isOwner) {
