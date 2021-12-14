@@ -71,7 +71,7 @@
             <td style="text-align: left;">
                 <a class="item-contol item-del" title="{{localize 'AQE.DecreaseItem'}}"><i class="fas fa-minus"></i></a>
             </td>
-            <td class="gear-values">{{item.data.weight}}</td>
+            <td class="gear-values">{{numberFormat item.data.weight decimals=2 sign=false}}</td>
             <td class="gear-values">{{item.data.capacity}}</td>
             <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">
@@ -115,7 +115,7 @@
             <td></td>
             <td class="gear-values">{{item.data.number}}</td>
             <td></td>
-            <td class="gear-values">{{item.data.weight}}</td>
+            <td class="gear-values">{{numberFormat item.data.weight decimals=2 sign=false}}</td>
             <td class="gear-values">{{item.data.capacity}}</td>
             <td class="gear-values">{{item.data.tags}}</td>
             <td class="gear-values">

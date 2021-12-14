@@ -77,9 +77,9 @@ export class AQEActor extends Actor {
     for (let i of actorData.items) {
       if (i.type === "gear" || i.type === "weapon" || i.type === "armor") {
         const item = i.data;
+        item.data.weight = item.data.unitweight * item.data.number;
         if (!item.data.stored) {
-          const weight = item.data.unitweight * item.data.number;
-          encumbrance = encumbrance + weight;
+         encumbrance = encumbrance + item.data.weight;
         }
       }
     }
