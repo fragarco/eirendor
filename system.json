@@ -21,6 +21,13 @@
   "scripts": [],
   "packs": [
     {
+      "name": "macros",
+      "label": "Macros",
+      "system": "eirendor",
+      "path": "./packs/macros.db",
+      "entity": "Macro"
+    },
+    {
       "name": "aqe-talentos",
       "label": "Talentos (AQE)",
       "system": "eirendor",
