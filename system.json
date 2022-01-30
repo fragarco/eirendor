@@ -68,6 +68,14 @@
       "system": "eirendor",
       "path": "./packs/monstruos-l2.db",
       "entity": "Actor"
+    },
+    {
+      "name": "monstruos-arkham",
+      "label": "Monstruos (Arkham)",
+      "system": "eirendor",
+      "type": "Actor",
+      "path": "packs/monstruos-arkham.db",
+      "entity": "Actor"
     }
   ],
   "languages": [
