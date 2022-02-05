@@ -32,7 +32,7 @@ export class AQEItem extends Item {
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: "<h2>" + item.name + "</h2>",
-        content: item.data.description
+        content: "<h3>" + item.data.tags + "<h3>" + item.data.description
       });
     }
   }

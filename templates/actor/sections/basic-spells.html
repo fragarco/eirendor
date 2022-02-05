@@ -77,7 +77,7 @@
             <tr class="item" data-item-id="{{item._id}}">
                 <td class="flexrow">
                     <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                    <span class="spell-name" title="{{item.data.summary}}">{{item.name}}</span>
+                    <span class="chatinfo spell-name" data-item={{item}} title="{{aqe_stripHTML item.data.description}}">{{item.name}}</span>
                 </td>
                 <td style="text-align: center;">{{item.data.range}}</td>
                 <td style="text-align: right;">
