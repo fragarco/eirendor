@@ -10,16 +10,16 @@
                     <label class="velabel">{{localize 'AQE.Name'}}</label>
                 </h1>
                 <div class="name-side-box">
-                    <input name="data.range" type="text" value="{{data.range}}" data-dtype="Number"/>
+                    <input name="system.range" type="text" value="{{system.range}}" data-dtype="Number"/>
                     <label class="velabel">{{localize "AQE.SpellRange"}}</label>
                 </div>
             </div>
             <div>
-                <input class="description-line" type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
+                <input class="description-line" type="text" name="system.tags" value="{{system.tags}}" data-dtype="String"/>
                 <label class="velabel">{{localize "AQE.Tags"}}</label>
             </div>
             <div>
-                <input class="description-line" type="text" name="data.summary" value="{{data.summary}}" data-dtype="String"/>
+                <input class="description-line" type="text" name="system.summary" value="{{system.summary}}" data-dtype="String"/>
                 <label class="velabel">{{localize "AQE.Summary"}}</label>
             </div>
         </div>
@@ -34,7 +34,7 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor system.description target="system.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>

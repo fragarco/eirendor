@@ -12,20 +12,20 @@
             </div>
             <ul class="flexrow">
                 <li>
-                    <input class="valuebox" type="text" name="data.number" value="{{data.number}}" data-dtype="Number"/>
+                    <input class="valuebox" type="text" name="system.number" value="{{system.number}}" data-dtype="Number"/>
                     <label class="velabel">{{localize "AQE.Number"}}</label>
                 </li>
                 <li>
-                    <input class="valuebox" type="text" name="data.unitweight" value="{{data.unitweight}}" data-dtype="Number"/>
+                    <input class="valuebox" type="text" name="system.unitweight" value="{{system.unitweight}}" data-dtype="Number"/>
                     <label class="velabel">{{localize "AQE.UnitWeight"}}</label>
                 </li>
                 <li>
-                    <input class="valuebox" type="text" name="data.capacity" value="{{data.capacity}}" data-dtype="Number"/>
+                    <input class="valuebox" type="text" name="system.capacity" value="{{system.capacity}}" data-dtype="Number"/>
                     <label class="velabel">{{localize "AQE.Capacity"}}</label>
                 </li>
             </ul>
             <div>
-                <input class="description-line" type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
+                <input class="description-line" type="text" name="system.tags" value="{{system.tags}}" data-dtype="String"/>
                 <label class="velabel">{{localize "AQE.Tags"}}</label>
             </div>
         </section>
@@ -39,7 +39,7 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor system.description target="system.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>

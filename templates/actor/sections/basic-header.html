@@ -9,11 +9,11 @@
     </h1>
     <ul class="level-box flexrow">
         <li>
-            <input name="data.header.level.value" type="text" value="{{data.header.level.value}}" data-dtype="Number"/>
+            <input name="system.header.level.value" type="text" value="{{system.header.level.value}}" data-dtype="Number"/>
             <label class="velabel">{{localize "AQE.Level"}}</label>
         </li>
         <li>
-            <input name="data.header.xp.value" type="text" value="{{data.header.xp.value}}" data-dtype="Number"/>
+            <input name="system.header.xp.value" type="text" value="{{system.header.xp.value}}" data-dtype="Number"/>
             <label class="velabel">{{localize "AQE.XP"}}</label>
         </li>
     </ul>
@@ -21,15 +21,15 @@
     <div class="flexrow">
     <ul class="summary flexrow">
         <li>
-            <input type="text" name="data.header.class.value" value="{{data.header.class.value}}" data-dtype="String"/>
+            <input type="text" name="system.header.class.value" value="{{system.header.class.value}}" data-dtype="String"/>
             <label class="velabel">{{localize "AQE.Class"}}</label>
         </li>
         <li>
-            <input type="text" name="data.header.race.value" value="{{data.header.race.value}}" data-dtype="String"/>
+            <input type="text" name="system.header.race.value" value="{{system.header.race.value}}" data-dtype="String"/>
             <label class="velabel">{{localize "AQE.Race"}}</label>
         </li>
         <li style="max-width: 8em;">
-            <input type="text" name="data.traits.mov.value" value="{{data.traits.mov.value}}" data-dtype="Number"/>
+            <input type="text" name="system.traits.mov.value" value="{{system.traits.mov.value}}" data-dtype="Number"/>
             <label class="velabel">{{localize "AQE.Mov"}}</label>
         </li>
     </ul>
@@ -37,11 +37,11 @@
     <div class="flexrow">
     <ul class="summary flexrow">
         <li>
-            <input type="text" name="data.header.tags.value" value="{{data.header.tags.value}}" data-dtype="String"/>
+            <input type="text" name="system.header.tags.value" value="{{system.header.tags.value}}" data-dtype="String"/>
             <label class="velabel">{{localize "AQE.Tags"}}</label>
         </li>
         <li>
-            <input type="text" name="data.header.langs.value" value="{{data.header.langs.value}}" data-dtype="String"/>
+            <input type="text" name="system.header.langs.value" value="{{system.header.langs.value}}" data-dtype="String"/>
             <label class="velabel">{{localize "AQE.Langs"}}</label>
         </li>
     </ul>
@@ -50,53 +50,53 @@
     <ul class="traits flexrow">
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.hd.value" value="{{data.traits.hd.value}}" data-dtype="String"/>
+                <input type="text" name="system.traits.hd.value" value="{{system.traits.hd.value}}" data-dtype="String"/>
             </div>
-            <h4 class="rollable" data-roll="{{data.traits.hd.value}}" data-comp="{{false}}" data-label="{{localize 'AQE.HD'}}">{{localize "AQE.HD"}}</h4>
+            <h4 class="rollable" data-roll="{{system.traits.hd.value}}" data-comp="{{false}}" data-label="{{localize 'AQE.HD'}}">{{localize "AQE.HD"}}</h4>
         </li>
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.hp.value" value="{{data.traits.hp.value}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.hp.value" value="{{system.traits.hp.value}}" data-dtype="Number"/>
                 <span class=>|</span>
-                <input type="text" name="data.traits.hp.max" value="{{data.traits.hp.max}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.hp.max" value="{{system.traits.hp.max}}" data-dtype="Number"/>
             </div>
             <h4>{{localize "AQE.HP"}}</h4>
         </li>
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.mp.value" value="{{data.traits.mp.value}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.mp.value" value="{{dasystemta.traits.mp.value}}" data-dtype="Number"/>
                 <span>|</span>
-                <input type="text" name="data.traits.mp.max" value="{{data.traits.mp.max}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.mp.max" value="{{system.traits.mp.max}}" data-dtype="Number"/>
             </div>
-            <h4>{{localize data.traits.mp.label}}</h4>
+            <h4>{{localize system.traits.mp.label}}</h4>
         </li>
-        {{#unless data.isNPC}}
+        {{#unless system.isNPC}}
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.pe.value" value="{{data.traits.pe.value}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.pe.value" value="{{system.traits.pe.value}}" data-dtype="Number"/>
                 <span class=>|</span>
-                <input type="text" name="data.traits.pe.max" value="{{data.traits.pe.max}}" data-dtype="Number" readonly/>
+                <input type="text" name="system.traits.pe.max" value="{{system.traits.pe.max}}" data-dtype="Number" readonly/>
             </div>
             <h4>{{localize "AQE.PE"}}</h4>
         </li>
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.bc.value" value="{{numberFormat data.traits.bc.value decimals=0 sign=true}}" data-dtype="Number" readonly/>
+                <input type="text" name="system.traits.bc.value" value="{{numberFormat system.traits.bc.value decimals=0 sign=true}}" data-dtype="Number" readonly/>
             </div>
             <h4>{{localize "AQE.BC"}}</h4>
         </li>
         {{/unless}}
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.ca.value" value="{{data.traits.ca.value}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.ca.value" value="{{system.traits.ca.value}}" data-dtype="Number"/>
             </div>
             <h4>{{localize "AQE.CA"}}</h4>
         </li>
         <li>
             <div class="flexrow">
-                <input type="text" name="data.traits.ini.value" value="{{numberFormat data.traits.ini.value decimals=0 sign=true}}" data-dtype="Number"/>
+                <input type="text" name="system.traits.ini.value" value="{{numberFormat system.traits.ini.value decimals=0 sign=true}}" data-dtype="Number"/>
             </div>
-            <h4 class="rollable" data-roll="1d20 + {{data.traits.ini.value}}" data-comp="0" data-bc="0" data-label="{{localize 'AQE.Ini'}}">{{localize "AQE.Ini"}}</h4>
+            <h4 class="rollable" data-roll="1d20 + {{system.traits.ini.value}}" data-comp="0" data-bc="0" data-label="{{localize 'AQE.Ini'}}">{{localize "AQE.Ini"}}</h4>
         </li>
     </ul>
     </div>

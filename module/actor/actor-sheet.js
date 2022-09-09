@@ -18,7 +18,7 @@ export class AQEActorSheet extends ActorSheet {
   get template() {
     const path = "systems/eirendor/templates/actor";
     let sheet = "";
-    const atype = this.actor.data.type; 
+    const atype = this.actor.type; 
     sheet = (atype === 'player') ? "actor-sheet.html" : "actor-npc-sheet.html"; 
     return `${path}/${sheet}`;
   }
@@ -27,23 +27,22 @@ export class AQEActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    let isOwner = this.actor.isOwner;
-    const data = super.getData();
+    const context = super.getData();
 
     // Redefine the template data references to the actor.
-    const actorData = this.actor.data.toObject(false);
-    data.actor = actorData;
-    data.data = actorData.data;
-    data.rollData = this.actor.getRollData.bind(this.actor);
+    const actorData = this.actor.toObject(false);
+    context.actor = actorData;
+    context.system = actorData.system;
+    context.rollData = this.actor.getRollData.bind(this.actor);
 
     // Owned items.
-    data.items = actorData.items;
-    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.items = actorData.items;
+    context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
     // Prepare items. Could be filtered if needed by type
-    // using this.actor.data.type
-    this._prepareBaseCharacterItems(data);
-    return data;
+    // using this.actor.type
+    this._prepareBaseCharacterItems(context);
+    return context;
   }
 
   /**
@@ -67,7 +66,7 @@ export class AQEActorSheet extends ActorSheet {
   
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
-      let item = i.data;
+      let item = i.system;
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       switch (i.type) {
@@ -99,9 +98,9 @@ export class AQEActorSheet extends ActorSheet {
           // Los trucos siempre estan preparados
           if (item.range === 0) item.runes = 1;
           // Filtrado de conjuros
-          if (actorData.data.filters.spells === "ALL" ||
-              actorData.data.filters.spells === ("level" + item.range) ||
-              (actorData.data.filters.spells === "READY" && item.runes > 0)) {
+          if (actorData.system.filters.spells === "ALL" ||
+              actorData.system.filters.spells === ("level" + item.range) ||
+              (actorData.system.filters.spells === "READY" && item.runes > 0)) {
             spells[item.range].push(i);
           }
           break;
@@ -157,8 +156,8 @@ export class AQEActorSheet extends ActorSheet {
     html.find('.storable').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      const stored = !item.data.data.stored;
-      item.update({'data.stored': stored});
+      const stored = !item.system.stored;
+      item.update({'system.stored': stored});
     });
 
     // Toggle prepared or proficient item states
@@ -201,10 +200,10 @@ export class AQEActorSheet extends ActorSheet {
     const itemData = {
       name: name,
       type: type,
-      data: data
+      system: data
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    delete itemData.system["type"];
 
     return await Item.create(itemData, {parent: this.actor});
   }
@@ -240,7 +239,7 @@ export class AQEActorSheet extends ActorSheet {
    */
   async __handleSimpleDualRoll(dataset) {
     const rollingstr = game.i18n.localize("AQE.Rolling")
-    const bc = this.object.data.data.traits.bc.value;
+    const bc = this.object.system.traits.bc.value;
     let roll = dataset.roll;
     if (dataset.comp === "true") {
       roll = roll + " + " + bc;
@@ -345,7 +344,7 @@ export class AQEActorSheet extends ActorSheet {
     ev.preventDefault();
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    item.update({'data.proficient': !item.data.data.proficient});
+    item.update({'data.proficient': !item.data.system.proficient});
   }
 
   /**
@@ -357,16 +356,16 @@ export class AQEActorSheet extends ActorSheet {
     ev.preventDefault();
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    switch (item.data.type) {
+    switch (item.type) {
       case "spell":
-        const runes = item.data.data.runes + 1
-        item.update({'data.runes': item.data.data.range === 0 ? 1 : runes})
+        const runes = item.system.runes + 1
+        item.update({'system.runes': item.system.range === 0 ? 1 : runes})
         break;
       case "weapon":
       case "armor":
       case "gear":
-        let num = item.data.data.number + 1;
-        item.update({'data.number': num});
+        let num = item.system.number + 1;
+        item.update({'system.number': num});
         break;
     }
   }
@@ -380,18 +379,18 @@ export class AQEActorSheet extends ActorSheet {
     ev.preventDefault();
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    switch (item.data.type) {
+    switch (item.type) {
       case "spell":
-        let runes = item.data.data.runes - 1;
+        let runes = item.system.runes - 1;
         if (runes < 0) runes = 0;
-        item.update({'data.runes': item.data.data.range === 0 ? 1 : runes});
+        item.update({'system.runes': item.system.range === 0 ? 1 : runes});
         break;
       case "weapon":
       case "armor":
       case "gear":
-        let num = item.data.data.number - 1;
+        let num = item.system.number - 1;
         if (num < 0) num = 0;
-        item.update({'data.number': num});
+        item.update({'system.number': num});
         break;
     }
   }

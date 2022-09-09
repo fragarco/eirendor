@@ -2,10 +2,10 @@
     <div class="attributes flexcol">
         <h3 class="subhead">{{localize "AQE.Attributes"}}</h3>
         <ol>
-            {{#each data.attributes as |attribute key|}}
+            {{#each system.attributes as |attribute key|}}
             <li class="flexrow">
                 <label class="rollable" data-roll="1d20 + {{attribute.mod}}" data-comp="{{attribute.proficient}}" data-label="{{localize attribute.label}}">{{localize attribute.label}}</label>
-                <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+                <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
                 <span>{{numberFormat attribute.mod decimals=0 sign=true}}</span>
             </li>
             {{/each}}
@@ -14,10 +14,10 @@
     <div class="skills flexcol">
         <h3 class="subhead">{{localize "AQE.Saves"}}</h3>
         <ol>
-            {{#each data.saves as |save key|}}
+            {{#each system.saves as |save key|}}
                 <li class="flexrow">
                     <label class="rollable" data-roll="1d20 + {{save.value}}" data-comp="{{save.proficient}}" data-label="{{localize save.label}}">{{localize save.label}}</label>
-                    <input type="text" name="data.saves.{{key}}.value" value="{{numberFormat save.value decimals=0 sign=true}}" data-dtype="Number"/>
+                    <input type="text" name="system.saves.{{key}}.value" value="{{numberFormat save.value decimals=0 sign=true}}" data-dtype="Number"/>
                 </li>
             {{/each}}
         </ol>

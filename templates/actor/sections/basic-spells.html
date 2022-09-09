@@ -1,7 +1,7 @@
 <div class="flexrow">
     <div class="flex0">
-        <select class="flexrow spells-filter" name="data.traits.mp.char">
-            {{#select data.traits.mp.char}}
+        <select class="flexrow spells-filter" name="system.traits.mp.char">
+            {{#select system.traits.mp.char}}
             <option value="int">{{localize "AQE.int"}}</option>
             <option value="wis">{{localize "AQE.wis"}}</option>
             <option value="cha">{{localize "AQE.cha"}}</option>
@@ -12,24 +12,24 @@
     <div style="max-width: 100px; text-align: center;">
         <ul class="runes-box flexrow">
             <li style="margin-top: 5px;">
-                <a class="rollable" data-roll="1d20 + {{data.traits.mp.atkmod}}" data-comp="{{false}}" data-label="{{localize 'AQE.Spells'}}"><i class="fas fa-dice-d20"></i></a>
+                <a class="rollable" data-roll="1d20 + {{system.traits.mp.atkmod}}" data-comp="{{false}}" data-label="{{localize 'AQE.Spells'}}"><i class="fas fa-dice-d20"></i></a>
             </li>
             <li>
-                <input type="text" name="data.traits.mp.atkmod" value="{{numberFormat data.traits.mp.atkmod decimals=0 sign=true}}" data-dtype="Number" {{#unless data.isNPC}}readonly{{/unless}}/>
+                <input type="text" name="system.traits.mp.atkmod" value="{{numberFormat system.traits.mp.atkmod decimals=0 sign=true}}" data-dtype="Number" {{#unless system.isNPC}}readonly{{/unless}}/>
                 <label class="velabel">{{localize "AQE.SpellsAtackMod"}}</label>
             </li>
             <li>
-                <input name="data.traits.mp.CD" type="text" value="{{data.traits.mp.CD}}" data-dtype="Number" {{#unless data.isNPC}}readonly{{/unless}}/>
+                <input name="system.traits.mp.CD" type="text" value="{{system.traits.mp.CD}}" data-dtype="Number" {{#unless system.isNPC}}readonly{{/unless}}/>
                 <label class="velabel">{{localize "AQE.SpellsCD"}}</label>
             </li>
         </ul>
     </div>
     <div class="flex0" style="margin-left: 10px; margin-right: 10px;">
-        <select class="flexrow spells-filter" name="data.filters.spells">
-            {{#select data.filters.spells}}
+        <select class="flexrow spells-filter" name="system.filters.spells">
+            {{#select system.filters.spells}}
             <option value="ALL">{{localize "AQE.ViewAll"}}</option>
             <option value="READY">{{localize "AQE.ViewReady"}}</option>
-            {{#each data.traits.runes as |rune key|}}
+            {{#each system.traits.runes as |rune key|}}
             <option value="{{key}}">{{localize rune.label}}</option>
             {{/each}}
             {{/select}}
@@ -39,9 +39,9 @@
     <div style="text-align: center;">
         <ul class="runes-box flexrow">
             <li style="margin-top: 5px;">{{localize "AQE.Runes"}}</li>
-            {{#each data.traits.runes as |rune key|}}
+            {{#each system.traits.runes as |rune key|}}
             <li>
-                <input name="data.traits.runes.{{key}}.value" type="text" value="{{rune.value}}" data-dtype="Number"/>
+                <input name="system.traits.runes.{{key}}.value" type="text" value="{{rune.value}}" data-dtype="Number"/>
                 <label class="velabel">{{localize rune.label}}</label>
             </li>
             {{/each}}
@@ -77,17 +77,17 @@
             <tr class="item" data-item-id="{{item._id}}">
                 <td class="flexrow">
                     <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                    <span class="chatinfo spell-name" data-item={{item}} title="{{aqe_stripHTML item.data.description}}">{{item.name}}</span>
+                    <span class="chatinfo spell-name" data-item={{item}} title="{{aqe_stripHTML item.system.description}}">{{item.name}}</span>
                 </td>
-                <td style="text-align: center;">{{item.data.range}}</td>
+                <td style="text-align: center;">{{item.system.range}}</td>
                 <td style="text-align: right;">
                     <a class="item-control item-add" title="{{localize 'AQE.IncreaseItem'}}"><i class="fas fa-plus"></i></a>
                 </td>
-                <td style="text-align: center;">{{item.data.runes}}</td>
+                <td style="text-align: center;">{{item.system.runes}}</td>
                 <td style="text-align: left;">
                     <a class="item-contol item-del" title="{{localize 'AQE.DecreaseItem'}}"><i class="fas fa-minus"></i></a>
                 </td>
-                <td style="text-align: center;">{{item.data.tags}}</td>
+                <td style="text-align: center;">{{item.system.tags}}</td>
                 <td style="text-align: center;">
                     <div class="item-controls">
                         <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>

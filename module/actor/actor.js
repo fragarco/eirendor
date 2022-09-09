@@ -5,17 +5,13 @@
 export class AQEActor extends Actor {
 
   /**
-   * Augment the basic actor data with additional dynamic data.
+   * Calculate all derived actor data.
+   * @inheritdoc
    */
-  prepareData() {
-    super.prepareData();
+   prepareDerivedData(options) {
+    super.prepareDerivedData(options);
 
-    const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags;
-
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
-    // things organized.
+    const actorData = this;
     switch (actorData.type) {
       case 'player':
         this._prepareCharacterData(actorData);
@@ -51,7 +47,7 @@ export class AQEActor extends Actor {
    * different labes for Pulp, Leyendas de Arkham, etc., hacks
    */
   _applySelectedHack(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
     const hack = game.settings.get("eirendor", "flavor");
     data.traits.mp.label = "AQE.MP";
     if (hack === "arkham") {
@@ -66,7 +62,7 @@ export class AQEActor extends Actor {
    * calculate encumbrance data 
    */
   _prepareEncumbranceData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
     data.encumbrance.max = data.attributes.str.value * 3;
     // encumbrance due to coins, 100 coins = 1 Kg
@@ -76,10 +72,10 @@ export class AQEActor extends Actor {
     // encumbrance due to carried items
     for (let i of actorData.items) {
       if (i.type === "gear" || i.type === "weapon" || i.type === "armor") {
-        const item = i.data;
-        item.data.weight = item.data.unitweight * item.data.number;
-        if (!item.data.stored) {
-         encumbrance = encumbrance + item.data.weight;
+        const item = i;
+        item.system.weight = item.system.unitweight * item.system.number;
+        if (!item.system.stored) {
+         encumbrance = encumbrance + item.system.weight;
         }
       }
     }
@@ -90,7 +86,7 @@ export class AQEActor extends Actor {
    * Calculate character attribute modificators
    */
   _prepareAttributesData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
     // attribute mods
     for (let [key, attribute] of Object.entries(data.attributes)) {
       attribute.mod = Math.floor((attribute.value - 10)/2);
@@ -113,23 +109,22 @@ export class AQEActor extends Actor {
    * Calculate attack values for all equiped weapons.
    */
    _prepareAttackData(actorData) {
-    const data = actorData.data;
-    for (let i of actorData.items) {
-      const item = i.data;
-      let base = item.data.addmod;
-      if (item.data.proficient) base = base + data.traits.bc.value;
+    const data = actorData.system;
+    for (let item of actorData.items) {
+      let base = item.system.addmod;
+      if (item.system.proficient) base = base + data.traits.bc.value;
       if (item.type === 'weapon') {
         if (data.isNPC) {
-          item.data.attackmod = data.header.level.value + 2;
-          item.data.dmgmod = 0;
+          item.system.attackmod = data.header.level.value + 2;
+          item.system.dmgmod = 0;
         } else {
-          item.data.attackmod = base;
-          if (item.data.weapontype !== "oth") {
-            item.data.attackmod = base + data.attributes[item.data.weapontype].mod;
+          item.system.attackmod = base;
+          if (item.system.weapontype !== "oth") {
+            item.system.attackmod = base + data.attributes[item.system.weapontype].mod;
           }
-          item.data.dmgmod = 0;
-          if (item.data.dmgtype !== "oth") {
-            item.data.dmgmod = data.attributes[item.data.dmgtype].mod;
+          item.system.dmgmod = 0;
+          if (item.system.dmgtype !== "oth") {
+            item.system.dmgmod = data.attributes[item.system.dmgtype].mod;
           }
         }
       }
@@ -141,7 +136,7 @@ export class AQEActor extends Actor {
    * Calculate attack values for all equiped weapons.
    */
   _prepareSpellsData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
     const bonus = data.attributes[data.traits.mp.char].mod + data.traits.bc.value;
     data.traits.mp.atkmod = bonus;
     data.traits.mp.CD = 8 + bonus;

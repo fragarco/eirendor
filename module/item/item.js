@@ -3,16 +3,19 @@
  * @extends {Item}
  */
 export class AQEItem extends Item {
+  
   /**
-   * Augment the basic Item data model with additional dynamic data.
+   * Calculate all derived item data.
+   * @inheritdoc
    */
-  prepareData() {
-    super.prepareData();
+  prepareData(options) {
+    super.prepareData(options);
 
-    // Get the Item's data
-    const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
+    /* How can we access item data
+    const itemData = this.system;
+    const actorData = this.actor ? this.actor.system : {};
+    const system = itemData.system;
+    */
   }
 
   /**
@@ -21,18 +24,18 @@ export class AQEItem extends Item {
  * @private
  */
   async roll() {
-    const item = this.data;
+    const item = this;
     if (item.type === "weapon") {
       this.handleAttackDualRoll({
-        roll: "1d20 + " + item.data.attackmod,
-        damage: item.data.damage + " + " + item.data.dmgmod,
+        roll: "1d20 + " + item.system.attackmod,
+        damage: item.system.damage + " + " + item.system.dmgmod,
         label: item.name
       });
     } else {
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: "<h2>" + item.name + "</h2>",
-        content: "<h3>" + item.data.tags + "<h3>" + item.data.description
+        content: "<h3>" + item.system.tags + "<h3>" + item.system.description
       });
     }
   }

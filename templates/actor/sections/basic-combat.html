@@ -24,22 +24,22 @@
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span title="{{aqe_stripHTML item.data.description}}" class="attackroll gear-name" data-damage="{{item.data.damage}} + {{item.data.dmgmod}}" data-roll="1d20 + {{item.data.attackmod}}" data-label="{{item.name}}">{{item.name}}</span>
+                <span title="{{aqe_stripHTML item.system.description}}" class="attackroll gear-name" data-damage="{{item.system.damage}} + {{item.system.dmgmod}}" data-roll="1d20 + {{item.system.attackmod}}" data-label="{{item.name}}">{{item.name}}</span>
             </td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-toggle" title="{{localize 'AQE.Proficient'}}">
-                        <i class="{{#if item.data.proficient}}fas fa-star{{else}}far fa-star{{/if}}"></i>
+                        <i class="{{#if item.system.proficient}}fas fa-star{{else}}far fa-star{{/if}}"></i>
                     </a>
                 </div>
             </td>
             <td class="gear-values">
-                <span class="gear-name" >{{numberFormat item.data.attackmod decimals=0 sign=true}}</span>
+                <span class="gear-name" >{{numberFormat item.system.attackmod decimals=0 sign=true}}</span>
             </td>
             <td class="gear-values">
-                {{item.data.damage}} + {{item.data.dmgmod}}
+                {{item.system.damage}} + {{item.system.dmgmod}}
             </td>
-            <td class="gear-values">{{item.data.tags}}</td>
+            <td class="gear-values">{{item.system.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>
@@ -71,10 +71,10 @@
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
                 <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span title="{{aqe_stripHTML item.data.description}}" class="gear-name">{{item.name}}</span>
+                <span title="{{aqe_stripHTML item.system.description}}" class="gear-name">{{item.name}}</span>
             </td>
-            <td class="gear-values">{{numberFormat item.data.ca decimals=0 sign=true}}</td>
-            <td class="gear-values">{{item.data.tags}}</td>
+            <td class="gear-values">{{numberFormat item.system.ca decimals=0 sign=true}}</td>
+            <td class="gear-values">{{item.system.tags}}</td>
             <td class="gear-values">
                 <div class="item-controls">
                     <a class="item-control item-edit" title="{{localize 'AQE.ModItem'}}"><i class="fas fa-edit"></i></a>

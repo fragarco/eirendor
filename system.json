@@ -1,12 +1,16 @@
 {
-  "name": "eirendor",
+  "id": "eirendor",
+  "version": "1.2.0",
   "title": "Eirendor: El Albor de la Quinta Edad",
+  "url": "https://github.com/fragarco/eirendor",
   "description": "Eirendor 1st edition system for Foundry VTT",
-  "version": "1.1.0",
-  "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "9",
-  "templateVersion": 2,
-  "author": "Javier 'Dwayne Hicks' Garcia",
+  "license": "LICENSE",
+  "authors": [
+    {
+      "name": "Javier 'Dwayne Hicks' Garcia",
+      "url": "https://cabohicks.blogspot.com"
+    }
+  ],
   "esmodules": [
     "module/eirendor.js"
   ],
@@ -25,57 +29,56 @@
       "label": "Macros",
       "system": "eirendor",
       "path": "./packs/macros.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
     {
       "name": "aqe-talentos",
       "label": "Talentos (AQE)",
       "system": "eirendor",
       "path": "./packs/aqe-talentos.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "arkham-talentos",
       "label": "Talentos (Arkham)",
       "system": "eirendor",
       "path": "./packs/arkham-talentos.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "trasfondos-profesiones",
       "label": "Trasfondos (Profesiones)",
       "system": "eirendor",
       "path": "./packs/trasfondos-prodesiones.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipo",
       "label": "Equipo",
       "system": "eirendor",
       "path": "./packs/equipo.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "conjuros",
       "label": "Conjuros",
       "system": "eirendor",
       "path": "./packs/conjuros.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "monstruos-l2",
       "label": "Monstruos (L2)",
       "system": "eirendor",
       "path": "./packs/monstruos-l2.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "monstruos-arkham",
       "label": "Monstruos (Arkham)",
       "system": "eirendor",
-      "type": "Actor",
       "path": "packs/monstruos-arkham.db",
-      "entity": "Actor"
+      "type": "Actor"
     }
   ],
   "languages": [
@@ -90,12 +93,15 @@
       "path": "lang/en.json"
     }
   ],
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10.282",
+    "maximum": "10"
+  },
   "gridDistance": 2,
   "gridUnits": "m",
-  "primaryTokenAttribute": null,
-  "secondaryTokenAttribute": null,
-  "url": "https://github.com/fragarco/eirendor",
+  "primaryTokenAttribute": "traits.hp",
+  "secondaryTokenAttribute": "traits.mp",
   "manifest": "https://raw.githubusercontent.com/fragarco/eirendor/main/system.json",
-  "download": "https://github.com/fragarco/eirendor/archive/refs/tags/v1.1.0.zip",
-  "license": "LICENSE"
+  "download": "https://github.com/fragarco/eirendor/archive/refs/tags/v1.2.0.zip"
 }
