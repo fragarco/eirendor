@@ -1,6 +1,6 @@
 {
   "id": "eirendor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "title": "Eirendor: El Albor de la Quinta Edad",
   "url": "https://github.com/fragarco/eirendor",
   "description": "Eirendor 1st edition system for Foundry VTT",
@@ -8,7 +8,8 @@
   "authors": [
     {
       "name": "Javier 'Dwayne Hicks' Garcia",
-      "url": "https://cabohicks.blogspot.com"
+      "url": "https://cabohicks.blogspot.com",
+      "flags": {}
     }
   ],
   "esmodules": [
@@ -22,86 +23,126 @@
     "css/rolls.css",
     "css/items.css"
   ],
-  "scripts": [],
   "packs": [
     {
       "name": "macros",
       "label": "Macros",
       "system": "eirendor",
-      "path": "./packs/macros.db",
-      "type": "Macro"
+      "path": "packs/macros",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "aqe-talentos",
       "label": "Talentos (AQE)",
       "system": "eirendor",
-      "path": "./packs/aqe-talentos.db",
-      "type": "Item"
+      "path": "packs/aqe-talentos",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "arkham-talentos",
       "label": "Talentos (Arkham)",
       "system": "eirendor",
-      "path": "./packs/arkham-talentos.db",
-      "type": "Item"
+      "path": "packs/arkham-talentos",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "trasfondos-profesiones",
       "label": "Trasfondos (Profesiones)",
       "system": "eirendor",
-      "path": "./packs/trasfondos-prodesiones.db",
-      "type": "Item"
+      "path": "packs/trasfondos-prodesiones",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipo",
       "label": "Equipo",
       "system": "eirendor",
-      "path": "./packs/equipo.db",
-      "type": "Item"
+      "path": "packs/equipo",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "conjuros",
       "label": "Conjuros",
       "system": "eirendor",
-      "path": "./packs/conjuros.db",
-      "type": "Item"
+      "path": "packs/conjuros",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "monstruos-l2",
       "label": "Monstruos (L2)",
       "system": "eirendor",
-      "path": "./packs/monstruos-l2.db",
-      "type": "Actor"
+      "path": "packs/monstruos-l2",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "monstruos-arkham",
       "label": "Monstruos (Arkham)",
       "system": "eirendor",
-      "path": "packs/monstruos-arkham.db",
-      "type": "Actor"
+      "path": "packs/monstruos-arkham",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     }
   ],
   "languages": [
     {
       "lang": "es",
       "name": "Spanish",
-      "path": "lang/es.json"
+      "path": "lang/es.json",
+      "flags": {}
     },
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
   "compatibility": {
     "minimum": "10",
-    "verified": "10.282",
-    "maximum": "10"
+    "verified": "11"
   },
   "gridDistance": 2,
   "gridUnits": "m",
   "primaryTokenAttribute": "traits.hp",
   "secondaryTokenAttribute": "traits.mp",
   "manifest": "https://raw.githubusercontent.com/fragarco/eirendor/main/system.json",
-  "download": "https://github.com/fragarco/eirendor/archive/refs/tags/v1.2.0.zip"
+  "download": "https://github.com/fragarco/eirendor/archive/refs/tags/v1.2.1.zip"
 }

@@ -61,8 +61,8 @@
         {{#each gear as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
-                <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span title="{{aqe_stripHTML item.system.description}}" class="storable gear-name">{{item.name}}</span>
+                <img class="storable item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
+                <span title="{{aqe_stripHTML item.system.description}}" class="chatinfo gear-name">{{item.name}}</span>
             </td>
             <td style="text-align: right;">
                 <a class="item-control item-add" title="{{localize 'AQE.IncreaseItem'}}"><i class="fas fa-plus"></i></a>
@@ -109,8 +109,8 @@
         {{#each stored as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
             <td class="flexrow">
-                <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
-                <span title="{{aqe_stripHTML item.system.description}}" class="storable gear-name">{{item.name}}</span>
+                <img class="storable item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
+                <span title="{{aqe_stripHTML item.system.description}}" class="chatinfo gear-name">{{item.name}}</span>
             </td>
             <td></td>
             <td class="gear-values">{{item.system.number}}</td>
