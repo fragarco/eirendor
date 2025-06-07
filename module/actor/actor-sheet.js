@@ -153,11 +153,11 @@ export class AQEActorSheet extends ActorSheet {
     });
 
     // Carry/Store inventory item
-    html.find('.storable').click(ev => {
+    html.find('.storable').click(async ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
       const stored = !item.system.stored;
-      item.update({'system.stored': stored});
+      await item.update({'system.stored': stored});
     });
 
     // Toggle prepared or proficient item states
@@ -193,7 +193,7 @@ export class AQEActorSheet extends ActorSheet {
     const header = event.currentTarget;
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.deepClone(header.dataset);
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
